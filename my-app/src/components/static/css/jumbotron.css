@@ -2,8 +2,10 @@
         position: relative;
         background: #000 url('../images/jumbo.jpeg') center center;
         width: 100%;
-        height: 60%;
+        height: 500px;
         background-size: cover;
         overflow: hidden;
-        color:darkorange
+        color:darkorange;
+        margin-top: 55px;
+
     }

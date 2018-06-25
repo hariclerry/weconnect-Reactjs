@@ -31,17 +31,18 @@ export default class Dashboard extends React.Component {
             <li>
                 <a href="/singlebusiness">Single Business</a>
             </li>
-                    </ul>
+        </ul>
               </div>
               </nav>
     
-                    <div className="container">
-                       
+            <div className="container">
+            <h4>Hello User, welcome to your dashboard, Below are a list of your Registered businesses</h4>
+             <hr/>
+              <br/>
+              <br/>
+              <br/>
               <div className="table-responsive">
                       <table className="table table-striped">
-                        
-                          <h4>Hello User, welcome to your dashboard, Below are a list of your Registered businesses</h4>
-                         <hr/>
                           <thead> 
                                   <td><b>Name</b></td>
                                   <td><b>Category</b></td>
@@ -51,6 +52,7 @@ export default class Dashboard extends React.Component {
                                   <td><b>Options</b></td>
                                   
                           </thead>
+                          <br/>
                           <tbody >
                              
                               <tr>

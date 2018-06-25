@@ -5,6 +5,17 @@ import './static/css/styles.css'
 
 
 export default class Signup extends React.Component {
+    signUp = e => {
+        e.preventDefault(); //prevent initial event from sending empty dict
+        let userCredential = {
+            username: e.target.elements.name.value,
+            email: e.target.elements.email.value,
+            password: e.target.elements.password.value
+        };
+        // this.props.registerUser()
+        console.log(userCredential);
+
+    }
     render () {
         return (
             <div>
@@ -38,23 +49,19 @@ export default class Signup extends React.Component {
                <div className="image"></div>
                <div className="frm">
                    <h1>Sign up</h1>
-                   <form>
+                   <form onSubmit={this.signUp}>
                        <div className="form-group">
-                           <label for="username">Username:</label>
-                           <input type="text" className="form-control" id="username" placeholder="Enter username"/>
+                           <label htmlFor="username">Username:</label>
+                           <input type="text" className="form-control"  name="name" id="username" placeholder="Enter username"/>
                        </div>
                        <div className="form-group">
-                           <label for="email">Email:</label>
-                           <input type="email" className="form-control" id="email" placeholder="Enter email"/>
+                           <label htmlFor="email">Email:</label>
+                           <input type="email" className="form-control"  name="email" id="email" placeholder="Enter email"/>
                        </div>
                        <div className="form-group">
-                           <label for="pwd">Password:</label>
-                           <input type="password" className="form-control" id="pwd" placeholder="Enter password"/>
+                           <label htmlFor="pwd">Password:</label>
+                           <input type="password" className="form-control" name="password" id="pwd" placeholder="Enter password"/>
                        </div>
-                       <div className="form-group">
-                        <label for="pwd">Confirm Password:</label>
-                        <input type="password" className="form-control" id="pwd" placeholder="Enter password"/>
-                    </div>
                        <div className="form-group">
                            <button type="submit" className="btn btn-success btn-lg">Submit</button>
                        </div>

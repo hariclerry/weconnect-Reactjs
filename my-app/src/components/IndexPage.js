@@ -8,24 +8,23 @@ export default class Index extends React.Component {
             <div>
                      
   
-  <nav className="navbar navbar-inverse">
+  <nav className="navbar navbar-inverse navbar-fixed-top">
     <div className="container-fluid">
       <div className="navbar-header">
         <a className="navbar-brand" href="help.html">WeConnect</a>
       </div>
       <ul className="nav navbar-nav">
         <li className="active"><a href="index.html">Home</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="help.html">Help</a></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
     
-        <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</a></li>
-        <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Sign In</a></li>
+        <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>{' '}Sign Up</a></li>
+        <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>{' '}Sign In</a></li>
         
       </ul>
     </div>
-  </nav> 
+  </nav>
 
 <div className="jumbotron">
           <div className="container">
@@ -37,7 +36,7 @@ export default class Index extends React.Component {
             
 <br/>
     <div className="container">
-    <h3> Welcome to We Connect App, where you can Register, Give Review and Connect with millions of Businesses World wide!</h3>
+    <h3> Welcome to We Connect! Connect with millions of Businesses World wide</h3>
     <a href="signup.html" className="btn btn-start" role="button"><h4>Get Started</h4></a>
     </div>
     <hr/>
@@ -46,7 +45,7 @@ export default class Index extends React.Component {
     <div className="row">
       <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
-          <img src="static/images/reg.jpeg" alt="Register Business" />
+          <img src={require('./static/images/reg.jpeg')} />
   
           <div className="caption">
             <h3>Register Business</h3>
@@ -57,7 +56,7 @@ export default class Index extends React.Component {
     
       <div className="col-sm-6 col-md-4">
           <div className="thumbnail">
-            <img src="static/images/innovation.jpeg" alt="Give Review" />
+            <img src={require('./static/images/innovation.jpeg')} />
             <div className="caption">
               <h3>Give Review</h3>
               <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
@@ -67,7 +66,7 @@ export default class Index extends React.Component {
     
         <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-              <img src="static/images/business.jpeg"  alt="Connect" />
+              <img src={require('./static/images/business.jpeg')} />
              
               <div className="caption">
                 <h3>Connect</h3>

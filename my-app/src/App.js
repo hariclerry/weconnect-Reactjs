@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Provider store = {weconnectStore} > 
+        <Provider store = {weconnectStore} >  
           <div>
             <BrowserRouter>
               <Routes/>

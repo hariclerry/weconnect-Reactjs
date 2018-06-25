@@ -36,25 +36,37 @@ export default class BusinessList extends React.Component {
   </nav>
     
             <div className="container">
-                       
-              <div className="table-responsive">
-              <table className="table table-striped">
-                        
-                          <h4>Hello User, Below are a list of all Registered businesses</h4>
-
-                         <hr/>
-                         <form  action="" method="POST">
+            <div style={{ width: "100%"}}>
+                <div style={{float: "left", width: "60%"}}>
+            <h4>Hello User, Below are a list of all Registered businesses</h4>
+            </div>
+            <div style={{float: "right", width: "40%"}}>
+            <form  action="" method="POST">
                                 <div>
                                   <div className="col-md-8 col-md-offset-2 businesssearch">
                                     <div className="input-group">
-                                           <input type="text" className="form-control" placeholder="Type business category or location" name="search"/>
+                                           <input type="text" className="form-control" placeholder="Search business" name="search"/>
                                              <span className="input-group-btn">
-                                               <button className="btn btn-search" type="submit" id="search"><i className="fa fa-search fa-fw"></i> Search</button>
+                                               <button className="btn btn-info" type="submit" id="search"><i className="fa fa-search fa-fw"></i> Search</button>
                                              </span>
                                    </div>
                                   </div>
                                 </div>
-                             </form>
+            </form>
+            </div>
+            </div>
+            <br/>
+    <br/>
+    <br/>
+    <br/>
+            <hr/>
+            <br/>
+    <br/>
+    <br/>
+    <br/>
+                       
+              <div className="table-responsive">
+              <table className="table table-striped">
                           <thead> 
                                   <td><b>Name</b></td>
                                   <td><b>Category</b></td>

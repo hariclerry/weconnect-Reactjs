@@ -37,25 +37,11 @@ export default class SingleBusiness extends React.Component {
   </nav>
     
             <div className="container">
+            <h4>Hello User, Below is business A </h4>
+            <hr/>
                        
               <div className="table-responsive">
               <table className="table table-striped">
-                        
-                          <h4>Hello User, Below is business A </h4>
-
-                         <hr/>
-                         <form  action="" method="POST">
-                                <div>
-                                  <div className="col-md-8 col-md-offset-2 businesssearch">
-                                    <div className="input-group">
-                                           <input type="text" className="form-control" placeholder="Type business category or location" name="search"/>
-                                             <span className="input-group-btn">
-                                               <button className="btn btn-search" type="submit" id="search"><i className="fa fa-search fa-fw"></i> Search</button>
-                                             </span>
-                                   </div>
-                                  </div>
-                                </div>
-                             </form>
                              <tbody >
                                 <tr>
                                         <td>Clerry's Boutique</td>

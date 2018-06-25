@@ -28,18 +28,20 @@ body{
     min-width: 250px;
     padding: 0 35px;
     background-size: 100% 100%;
-    background-color: white;
+	background-color: white;
+
 }
 
 #registration-form h1{
-	margin-top: 30px;
+	margin-top: 0;
 	margin-bottom: 20px;
 }
 
 #registration-form .form-control{
-	width: 90%;
+	width: 100%;
 	padding: 12px 20px;
 	height: auto;
+	margin-bottom: 90px;
 }
 
 @media screen and (max-width: 700px){
