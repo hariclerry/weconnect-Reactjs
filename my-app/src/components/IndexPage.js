@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './static/css/bootstrap.min.css'
 import './static/css/jumbotron.css'
 
@@ -14,13 +15,13 @@ export default class Index extends React.Component {
         <a className="navbar-brand" href="help.html">WeConnect</a>
       </div>
       <ul className="nav navbar-nav">
-        <li className="active"><a href="index.html">Home</a></li>
+        <li className="active"><NavLink to="/">Home</NavLink></li>
         <li><a href="help.html">Help</a></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
     
-        <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>{' '}Sign Up</a></li>
-        <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>{' '}Sign In</a></li>
+        <li><NavLink to="/signup"><span className="glyphicon glyphicon-user"></span>{' '}Sign Up</NavLink></li>
+        <li><NavLink to="/login"><span className="glyphicon glyphicon-log-in"></span>{' '}Sign In</NavLink></li>
         
       </ul>
     </div>
@@ -45,7 +46,7 @@ export default class Index extends React.Component {
     <div className="row">
       <div className="col-sm-6 col-md-4">
         <div className="thumbnail">
-          <img src={require('./static/images/reg.jpeg')} />
+          <img src={require('./static/images/reg.jpeg')} alt="image1" />
   
           <div className="caption">
             <h3>Register Business</h3>
@@ -56,7 +57,7 @@ export default class Index extends React.Component {
     
       <div className="col-sm-6 col-md-4">
           <div className="thumbnail">
-            <img src={require('./static/images/innovation.jpeg')} />
+            <img src={require('./static/images/innovation.jpeg')} alt="image2" />
             <div className="caption">
               <h3>Give Review</h3>
               <p>Lorem ipsum donec id elit non mi porta gravida at eget metus.</p>
@@ -66,7 +67,7 @@ export default class Index extends React.Component {
     
         <div className="col-sm-6 col-md-4">
             <div className="thumbnail">
-              <img src={require('./static/images/business.jpeg')} />
+              <img src={require('./static/images/business.jpeg')} alt="image3" />
              
               <div className="caption">
                 <h3>Connect</h3>

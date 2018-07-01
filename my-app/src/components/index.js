@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import { NotificationContainer } from 'react-notifications';
 import Index from './IndexPage';
 import Signup from './Signup';
 import Login from './Login';
@@ -11,9 +12,11 @@ import UpdateBusiness  from './UpdateBusiness';
 import AddReview from './AddReview';
 
 
+
 class Routes extends React.Component {
     render () {
         return (
+            <div>
             <div>
                 <Route path= '/' exact component= { Index } />
                 <Route path= '/index' exact component= { Index } />
@@ -27,6 +30,11 @@ class Routes extends React.Component {
                 <Route path= '/addreview' component= { AddReview } />
 
             </div>
+            <div>
+              <NotificationContainer/>
+              </div>
+            </div>
+
 
         )
     }

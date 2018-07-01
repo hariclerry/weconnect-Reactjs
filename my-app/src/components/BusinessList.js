@@ -1,9 +1,46 @@
 import React from 'react';
+import './static/css/bootstrap.min.css';
+
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import { NotificationManager } from 'react-notifications';
 import './static/css/bootstrap.min.css'
+import { fetchBusinesses } from '../actions/businessActions';
 
 
-export default class BusinessList extends React.Component {
+class BusinessList extends React.Component {
+
+    componentWillReceiveProps(recieved) {
+        console.log(recieved)
+        if(recieved.business){
+        if (recieved.business.message === "Business successfully registered") {
+            this.props.history.push('/businesslist');
+        }
+        else{
+            if(recieved && recieved.business.status === "failure"){
+                NotificationManager.error(recieved.business.message, "", 5000);
+            }
+        }}
+};
+
+componentDidMount() {
+    this.props.fetchBusinesses();
+  }
+
     render () {
+        console.log(this.props.business.business_data)
+        
+        // returns all businesses from props int a dict
+        const businesses = Object.values({...this.props.business.business_data});
+
+         // sorts/arrange business from recently added to previous
+        if (businesses){
+            Array.prototype.reverse.call(businesses)
+      }
+        // const business = this.props.business.business_data;
         return (
     <div>
      <nav className="navbar navbar-inverse">
@@ -64,7 +101,7 @@ export default class BusinessList extends React.Component {
     <br/>
     <br/>
     <br/>
-                       
+
               <div className="table-responsive">
               <table className="table table-striped">
                           <thead> 
@@ -72,51 +109,28 @@ export default class BusinessList extends React.Component {
                                   <td><b>Category</b></td>
                                   <td><b>Location</b></td>
                                   <td><b>Description</b></td>
-                                  <td><b>Createdby</b></td>
-                                  <td><b>Add Review</b></td>
+                                  <td><b>Review</b></td>
                                   
                           </thead>
                           <tbody >
                              
-                              <tr>
-                                  <td>Andela</td>
-                                  <td>Technology</td>
-                                  <td>Kampala</td>
-                                  <td>This is Andela</td>
-                                  <td>Labongo</td>
-                                  <td>
+                          {this.props.loading? <tr><td colSpan={6}><div className="text-center  alert alert-info"><span>Loading businesses</span></div></td></tr> :
+										businesses.map((business, index) =>
+                            				 <tr key={business.id}>
+                                             <td>{business.name}</td>
+					                         <td>{business.category}</td>
+					                          <td>{business.location}</td>
+                                              <td>{business.description}</td>
+                                              <td>
                                   
-                                        <a href="/addreview" className="btn btn-info" role="button">Add Review</a>
-                                  </td>
-
-                                 
-                              </tr>
-                              <tr>
-                                    <td>Jumia</td>
-                                    <td>Real Estates</td>
-                                    <td>Gulu</td>
-                                    <td>Property Dealers</td>
-                                    <td>Mukasa</td>
-                                    <td>
-                                    
-                                          <a href="/addreview" className="btn btn-info" role="button">Add Review</a>
-                                    </td>
-  
-                                   
-                                </tr>
-                                <tr>
-                                        <td>Clerry's Boutique</td>
-                                        <td>Fashion</td>
-                                        <td>Kabale</td>
-                                        <td>Dress your Best</td>
-                                        <td>Clerry</td>
-                                        <td>
-                                        
-                                              <a href="addreview" className="btn btn-info" role="button">Add Review</a>
-                                        </td>
-      
-                                       
-                                    </tr>
+                                                  <a href="/addreview" className="btn btn-info" role="button">Review</a>
+                                               </td>
+											
+											</tr>
+											)
+										}
+                              
+                              
                              
                           </tbody>
                          
@@ -151,3 +165,16 @@ export default class BusinessList extends React.Component {
         )
     }
 }
+
+
+BusinessList.protoTypes = {
+    fetchBusinesses: PropTypes.func.isRequired,
+    businesses: PropTypes.object
+}
+
+const mapStateToProps = state =>({
+    business: state.business.fetchBusinessMessage
+
+});
+
+export default  withRouter(connect(mapStateToProps,{ fetchBusinesses })(BusinessList));

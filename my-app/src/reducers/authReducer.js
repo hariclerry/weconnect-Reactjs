@@ -1,15 +1,18 @@
-import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD } from '../actions/types';
+import { REGISTER_USER, LOGIN_USER} from '../actions/types';
 
-const initialState = { 
+const initialState = {
     signupMessage: {},
-    loginData: {},
-    resetPasswordData: {}
+    loginData: {}
+    // resetPasswordData: {}
 };
 
 export default (state = initialState, action)=>{
     switch(action.type){
         case REGISTER_USER:
             return {...state, signupMessage:action.message}
+        case LOGIN_USER:
+            console.log("LOGIN_USER")
+            return {...state, loginData:action.token}
         default:
             return state;
     }
