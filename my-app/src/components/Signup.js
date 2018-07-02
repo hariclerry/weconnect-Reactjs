@@ -13,6 +13,8 @@ import './static/css/jumbotron.css';
 import './static/css/styles.css';
 import { registerUser} from '../actions/userActions';
 
+import Footer from './Footer';
+
 
 
 class Signup extends React.Component {
@@ -128,13 +130,7 @@ class Signup extends React.Component {
     <br/>
     <br/>
     <br/>
-    <footer className="row">
-           
-            <div className="panel-footer text-center bg-dark">
-        <p>  &copy; Copyright 2018 <i>powered by</i>  <b> InfoClan</b> </p>
-            </div>
-    
-    </footer>
+    <Footer />
             </div>
 
         )
@@ -145,8 +141,8 @@ Signup.protoTypes = {
     registerUser: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state =>{
-    user: state.authenticate.signupMessage
-}
+const mapStateToProps = state =>({
+    user: state.auth.signupMessage
+});
 
 export default  withRouter(connect(mapStateToProps ,{ registerUser })(Signup));

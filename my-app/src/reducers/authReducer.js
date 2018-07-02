@@ -11,8 +11,7 @@ export default (state = initialState, action)=>{
         case REGISTER_USER:
             return {...state, signupMessage:action.message}
         case LOGIN_USER:
-            console.log("LOGIN_USER")
-            return {...state, loginData:action.token}
+            return {...state, loginData:action.user}
         default:
             return state;
     }

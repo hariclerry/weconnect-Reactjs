@@ -25,7 +25,7 @@ class Routes extends React.Component {
                 <Route path= '/dashboard' component= { Dashboard } />
                 <Route path= '/registerbusiness' component= { RegisterBusiness } />
                 <Route path= '/businesslist' component= { BusinessList } />
-                <Route path= '/singlebusiness' component= { SingleBusiness } />
+                <Route path= '/singlebusiness/:id' component= { SingleBusiness } />
                 <Route path= '/updatebusiness' component= { UpdateBusiness  } />
                 <Route path= '/addreview' component= { AddReview } />
 

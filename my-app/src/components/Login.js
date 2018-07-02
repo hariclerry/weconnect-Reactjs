@@ -11,23 +11,22 @@ import { NotificationManager } from 'react-notifications';
 import './static/css/bootstrap.min.css';
 import './static/css/stylesform.css';
 import { loginUser } from '../actions/userActions';
+import Footer from './Footer';
 
 
 class Login extends React.Component {
 
-    componentWillReceiveProps(recieved) {
-        console.log(recieved)
-        if (recieved && recieved.user.message === "You logged in successfully.") {
-               localStorage.setItem('access_token', recieved.user.access_token)
-               console.log(localStorage.getItem('access_token'))
-            this.props.history.push('/dashboard');
-        }
-        else{
-            if(recieved && recieved.user.status === "failure"){
-                NotificationManager.error(recieved.user.message, "", 5000);
-            }
-        }
-};
+//     componentWillReceiveProps(recieved) {
+//         console.log(recieved)
+//         if (recieved && recieved.user.message === "You logged in successfully.") {
+//             this.props.history.push('/dashboard');
+//         }
+//         else{
+//             if(recieved && recieved.user.status === "failure"){
+//                 NotificationManager.error(recieved.user.message, "", 5000);
+//             }
+//         }
+// };
 
    
 
@@ -50,7 +49,12 @@ class Login extends React.Component {
             email: e.target.elements.email.value,
             password: e.target.elements.password.value
         };
-        this.props.loginUser(this.jsonStringify(userCredential));
+        this.props.loginUser(this.jsonStringify(userCredential)).then(()=>{
+            this.props.history.push('/dashboard');
+        }).catch(err=>{
+            console.log(err.data);
+            alert('Wrong email or password');
+        });
     }
     render () {
         // const user = this.props.user;
@@ -106,14 +110,10 @@ class Login extends React.Component {
                                 />
         </div>
             <div className="form-group form-group-btn">
-                <button type="submit" className="btn btn-success btn-lg">Log In</button>
+                <button type="submit" className="btn btn-success btn-lg" style={{marginTop: "20%"}}>Log In</button>
             </div>
             <div className="clearfix"></div>
-            <div className="checkbox">
-                <label>
-                    <input type="checkbox"/> Remember me
-                </label>
-            </div>
+            
         </form>
     </div>
 
@@ -123,13 +123,7 @@ class Login extends React.Component {
     <br/>
     <br/>
     <br/>
-    <footer className="row">
-           
-            <div className="panel-footer text-center bg-dark">
-        <p>  &copy; Copyright 2018 <i>powered by</i>  <b> InfoClan</b> </p>
-            </div>
-    
-    </footer>
+    <Footer />
     </div>
 
         )

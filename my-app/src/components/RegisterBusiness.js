@@ -9,17 +9,18 @@ import { withRouter } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
 import './static/css/bootstrap.min.css'
 import { registerBusiness} from '../actions/businessActions';
+import Footer from './Footer';
 
 
 class RegisterBusiness extends React.Component {
 
     componentWillReceiveProps(recieved) {
-        if (recieved && recieved.user.message === "Business successfully registered") {
+        if (recieved && recieved.business.message === "Business successfully registered") {
             this.props.history.push('/dashboard');
         }
         else{
-            if(recieved && recieved.user.status === "failure"){
-                NotificationManager.error(recieved.user.message, "", 5000);
+            if(recieved && recieved.business.status === "failure"){
+                NotificationManager.error(recieved.business.message, "", 5000);
             }
         }
 };
@@ -127,13 +128,7 @@ class RegisterBusiness extends React.Component {
     <br/>
     <br/>
     <br/>
-    <footer className="row">
-           
-            <div className="panel-footer text-center bg-dark">
-        <p>  &copy; Copyright 2018 <i>powered by</i>  <b> InfoClan</b> </p>
-            </div>
-    
-         </footer>
+    <Footer />
 
     </div>
 
@@ -147,7 +142,7 @@ RegisterBusiness.protoTypes = {
 }
 
 const mapStateToProps = state =>({
-    user: state.business.createBusinessMessage
+    business: state.business.createBusinessMessage
 
 });
 

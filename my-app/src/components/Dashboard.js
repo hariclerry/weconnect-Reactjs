@@ -1,40 +1,58 @@
 import React from 'react';
 import './static/css/bootstrap.min.css'
+import NavBar   from './NavBar';
+import Footer from './Footer';
+import {connect} from 'react-redux';
+import PropTypes from  'prop-types';
+import { NavLink } from "react-router-dom";
+import {checkIfUserIsLoggedIn} from '../actions/userActions';
+import { userBusinesses } from '../actions/businessActions';
+// import { NotificationManager } from "react-notifications";
 
 
-export default class Dashboard extends React.Component {
+
+class Dashboard extends React.Component {
+
+    // componentWillReceiveProps(recieved) {
+    //     if (recieved.business) {
+    //       if (recieved.business.message === "Business successfully registered") {
+    //         this.props.history.push("/businesslist");
+    //       } else {
+    //         if (recieved && recieved.business.status === "failure") {
+    //           NotificationManager.error(recieved.business.message, "", 5000);
+    //         }
+    //       }
+    //     }
+    //   }
+
+    componentWillMount(){
+       checkIfUserIsLoggedIn(this.props.email,this.props.history);
+    }
+
+   
+    
+      componentDidMount() {
+          console.log(localStorage.getItem("user_id"))
+        this.props.userBusinesses(localStorage.getItem("user_id"));
+      }
+    
+        
     render () {
+
+        console.log(this.props.business.business_data);
+    
+        // returns all businesses from props int a dict
+        const businesses = Object.values({ ...this.props.business.business_data });
+        // console.log("businesses:", this.props.business);
+    
+        // sorts/arrange business from recently added to previous
+        if (businesses) {
+          Array.prototype.reverse.call(businesses);
+        }
+        // const business = this.props.business.business_data;
         return (
             <div>
-                <nav className="navbar navbar-inverse">
-                <div className="container-fluid">
-                  <div className="navbar-header">
-                    <a className="navbar-brand" href="/">WeConnect</a>
-                  </div>
-                 
-                  
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><a href=""><span className="glyphicon glyphicon-user"></span>User</a></li>
-                        <li><a href="/"><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                          </ul>
-        <ul className="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li>
-                <a href="/dashboard">Dasboard</a>
-            </li>
-            <li>
-                <a href="/registerbusiness">Register Business</a>
-            </li>
-            <li>
-                <a href="/businesslist">All Businesses</a>
-            </li>
-            <li>
-                <a href="/singlebusiness">Single Business</a>
-            </li>
-        </ul>
-              </div>
-              </nav>
-    
+               <NavBar />
             <div className="container">
             <h4>Hello User, welcome to your dashboard, Below are a list of your Registered businesses</h4>
              <hr/>
@@ -42,40 +60,63 @@ export default class Dashboard extends React.Component {
               <br/>
               <br/>
               <div className="table-responsive">
-                      <table className="table table-striped">
-                          <thead> 
-                                  <td><b>Name</b></td>
-                                  <td><b>Category</b></td>
-                                  <td><b>Location</b></td>
-                                  <td><b>Description</b></td>
-                                  <td><b>Reviews</b></td>
-                                  <td><b>Options</b></td>
-                                  
-                          </thead>
-                          <br/>
-                          <tbody >
-                             
-                              <tr>
-                                  <td>Andela</td>
-                                  <td>Technology</td>
-                                  <td>Kampala</td>
-                                  <td>This is Andela</td>
-                                  <td>
-                                  
-                                      <a href="review.html" className="btn btn-info" role="button">View Reviews</a>
-                                  </td>
-                                  <td>
-                                      <a href="updatebusiness" className="btn btn-info" role="button" style={{float: "left"}}>Edit</a>
-                                      <a href="delete" className="btn btn-info" role="button" style={{float: "right"}}>Delete</a>
-                              
-                                  </td>
-                                 
-                              </tr>
-                             
-                          </tbody>
-                         
-                       </table>
-                  </div>
+            <table className="table table-striped">
+              <thead>
+                <td>
+                  <b>Name</b>
+                </td>
+                <td>
+                  <b>Category</b>
+                </td>
+                <td>
+                  <b>Location</b>
+                </td>
+                <td>
+                  <b>Description</b>
+                </td>
+                <td>
+                  <b>Review</b>
+                </td>
+              </thead>
+              <tbody>
+                {this.props.loading ? (
+                  <tr>
+                    <td colSpan={6}>
+                      <div className="text-center  alert alert-info">
+                        <span>Loading businesses</span>
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  businesses.map((business, index) => (
+                    <tr key={business.id}>
+                      <td>
+                        <NavLink
+                          to={`/singlebusiness/${business.id}`}
+                          style={{ textDecoration: "None" }}
+                        >
+                          {" "}
+                          {business["name"]}
+                        </NavLink>
+                    </td>
+                      <td>{business.category}</td>
+                      <td>{business.location}</td>
+                      <td>{business.description}</td>
+                      <td>
+                        <a
+                          href="/addreview"
+                          className="btn btn-info"
+                          role="button"
+                        >
+                          Review
+                        </a>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
                   </div>
 
     <br/>
@@ -94,15 +135,24 @@ export default class Dashboard extends React.Component {
     <br/>
     <br/>
     <br/>
-    <footer className="row">
-           
-            <div className="panel-footer text-center bg-dark">
-        <p>  &copy; Copyright 2018 <i>powered by</i>  <b> InfoClan</b> </p>
-            </div>
-    
-    </footer>
+    <Footer />
             </div>
 
         )
     }
 }
+
+// Validate props
+
+Dashboard.propTypes = {
+    email: PropTypes.string.isRequired,
+    userBusinesses: PropTypes.func.isRequired
+//  businesses: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+    email: state.auth.loginData.email,
+    business: state.business.userBusinessMessage
+});
+
+export default connect(mapStateToProps, {checkIfUserIsLoggedIn, userBusinesses})(Dashboard);

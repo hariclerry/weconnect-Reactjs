@@ -1,5 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+import Footer from './Footer';
+
 import './static/css/bootstrap.min.css'
 import './static/css/jumbotron.css'
 
@@ -85,13 +88,7 @@ export default class Index extends React.Component {
    <br/>
    <br/>
    <br/>
-    <footer className="row">
-           
-            <div className="panel-footer text-center bg-dark">
-        <p>  &copy; Copyright 2018 <i>powered by</i>  <b> InfoClan</b> </p>
-            </div>
-    
-    </footer>     
+   <Footer />
 
             </div>
 
