@@ -60,6 +60,8 @@ updateBusiness = e => {
 
 }
     render () {
+        console.log(this.props.business)
+        console.log(this.props.email)
         return (
     <div>
             <NavBar />
@@ -118,15 +120,17 @@ updateBusiness = e => {
     }
 }
 
-UpdateBusiness.protoTypes = {
+EditBusiness.protoTypes = {
   email: PropTypes.string.isRequired,
   editBusiness: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state =>({
+const mapStateToProps = state =>{
+console.log(state);
+return {
   email: state.auth.loginData.email,
-  business: state.business.editBusinessMessage
+  business: state.business.singleBusinessMessage.business_data,
 
-});
+}};
 
 export default  withRouter(connect(mapStateToProps,{editBusiness })(EditBusiness));

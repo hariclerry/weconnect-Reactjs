@@ -1,5 +1,5 @@
 // import history from '../components/history';
-import { REGISTER_BUSINESS, FETCH_BUSINESSES,  SINGLE_BUSINESS,  DELETE_BUSINESS,  USER_BUSINESSES, UPDATE_BUSINESS} from './types';
+import { REGISTER_BUSINESS, FETCH_BUSINESSES,  SINGLE_BUSINESS,  DELETE_BUSINESS,  USER_BUSINESSES, EDIT_BUSINESS, REVIEW_BUSINESS, FETCH_BUSINESS_REVIEWS } from './types';
 
 
 export const registerBusiness = credentials => dispatch => {
@@ -105,7 +105,7 @@ export const deleteBusiness = (id) => dispatch => {
     ;})
 }
 
-export const updateBusiness = (id) => dispatch => {
+export const editBusiness = (id) => dispatch => {
     console.log("LOGGING: updatinggggg...")
     let options = {
         method: 'PUT',
@@ -117,7 +117,48 @@ export const updateBusiness = (id) => dispatch => {
     return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {dispatch(
-        {type: UPDATE_BUSINESS,
+        {type: EDIT_BUSINESS,
+        message: data}
+    );
+    console.log(data)
+    // history.push('/dashboard')
+    ;})
+}
+
+export const reviewBusiness = (id, credentials) => dispatch => {
+    console.log("LOGGING: reviewinggggg...")
+    let options = {
+        method: 'POST',
+        body: credentials,
+        headers: {
+            'Content-Type':'application/json',
+            'access_token': localStorage.getItem('access_token')
+            }
+    };
+    return fetch(`http://127.0.0.1:5000/v1/api/business/${id}/reviews`, options)
+    .then(response => response.json())
+    .then(data => {dispatch(
+        {type: REVIEW_BUSINESS,
+        message: data}
+    );
+    console.log(data)
+    // history.push('/dashboard')
+    ;})
+}
+
+export const fetchReview = (id) => dispatch => {
+    console.log("LOGGING: review.......")
+    let options = {
+        method: 'GET',
+        headers: {
+            'Content-Type':'application/json',
+            'access_token': localStorage.getItem('access_token')
+            }
+    };
+    return fetch(`http://127.0.0.1:5000/v1/api/business/${id}/reviews`, options)
+    .then(response => response.json())
+    .then(data => {dispatch(
+        {type: FETCH_BUSINESS_REVIEWS,
         message: data}
     );
     console.log(data)

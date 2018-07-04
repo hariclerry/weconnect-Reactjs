@@ -50,14 +50,17 @@ class SingleBusiness extends React.Component {
 
         <div className="col-md-8 col-md-offset-2">
         <Loader loaded={loaded}>
-        <h1>{business.name}</h1>
-        <p><b>Category:   </b> {business.category}</p>
-        <p><b>Location:   </b>{business.location}</p>
-        <p><b>Description:  </b>{business.description}</p>
+        <h1>{business['name']}</h1>
+        <p><b>Category:   </b> {business['category']}</p>
+        <p><b>Location:   </b>{business['location']}</p>
+        <p><b>Description:  </b>{business['description']}</p>
 
-        <a href="/addreview" className="btn btn-info" role="button" style={{margin: "2%"}}>Review</a>
-        <a href="/edit" className="btn btn-info" role="button" color="green" style={{margin: "2%"}}>Edit</a>
-        <button onClick={() => this.deleteBusiness(business.id) } className="btn btn-default"  role="button" style={{margin: "2%"}}> Delete </button>
+       
+        {/* <button onClick={() => this.reviewBusiness(business.id) } className="btn btn-default"  role="button" style={{margin: "2%"}}> Review </button> */}
+        {/* <NavLink to={`/singlebusiness/${business.id}`} style={{ textDecoration: "None" }}> </NavLink> */}
+        <a href={`/addreview/${business.id}`} className="btn btn-success" role="button" color="green" style={{margin: "1%"}}>Review</a>                
+        <a href={`/editbusiness/${business.id}`} className="btn btn-info" role="button" color="green" style={{margin: "1%"}}>Edit</a>
+        <button onClick={() => this.deleteBusiness(business.id) } className="btn btn-danger"  role="button" style={{margin: "1%"}}> Delete </button>
         </Loader>
       </div>
 

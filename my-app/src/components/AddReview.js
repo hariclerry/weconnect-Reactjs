@@ -2,11 +2,66 @@ import React from 'react';
 import './static/css/bootstrap.min.css'
 import './static/css/stylesform.css'
 // import {checkIfUserIsLoggedIn} from '../actions/userActions'
-import NavBar from './NavBar';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+// import 'react-notifications/lib/notifications.css';
+
+import { NotificationManager } from 'react-notifications';
+import './static/css/bootstrap.min.css'
+import { reviewBusiness} from '../actions/businessActions';
+import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import Footer from './Footer';
+import NavBar from './NavBar';
 
 
-export default class AddReview extends React.Component {
+
+class ReviewBusiness extends React.Component {
+
+    componentWillReceiveProps(recieved) {
+        if (recieved && recieved.review.message === "Business successfully registered") {
+            this.props.history.push('/dashboard');
+        }
+        else{
+            if(recieved && recieved.review.status === "failure"){
+                NotificationManager.error(recieved.review.message, "", 5000);
+            }
+        }
+};
+
+
+componenWillMount() {
+        checkIfUserIsLoggedIn(this.props.email,this.props.history);
+   
+  }
+
+	jsonStringify = object =>{
+        let simpleObj={};
+            for (let prop in object){
+                    if (!object.hasOwnProperty(prop)){
+                            continue;
+                        }
+                    if (typeof(object[prop]) === 'object'){
+                            continue;
+                        }
+                    simpleObj[prop] = object[prop];
+                }
+                return JSON.stringify(simpleObj)}
+
+    addReview = e => {
+        e.preventDefault(); // Prevent link from opening the URL(synthetic event):
+        let businessCredential = {
+            description: e.target.elements.description.value
+        };
+        const businessId = this.props.match.params.id
+        console.log(this.props.match);
+        this.props.reviewBusiness(businessId, this.jsonStringify(businessCredential))
+        // this.props.reviewBusiness(businessId)
+
+
+    }
+
     render () {
         return (
     <div>
@@ -38,7 +93,7 @@ export default class AddReview extends React.Component {
                 
         
                       <div style={{margin: "100px"}}>
-                            <form  action ="/addreview" method="POST" >
+                            <form   onSubmit={this.addReview } >
                                     <div className="form-group">
                                             <label className="control-label " for="description">Say Something about this Business:</label>
                                             <textarea className="form-control" cols="5" id="description" name="description" rows="5"></textarea>
@@ -75,3 +130,16 @@ export default class AddReview extends React.Component {
         )
     }
 }
+
+ReviewBusiness.protoTypes = {
+    email: PropTypes.string.isRequired,
+    reviewBusiness: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state =>({
+    email: state.auth.loginData.email,
+    review: state.business.reviewBusinessMessage
+
+});
+
+export default  withRouter(connect(mapStateToProps,{reviewBusiness })(ReviewBusiness));

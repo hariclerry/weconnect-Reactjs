@@ -8,8 +8,8 @@ import Dashboard from './Dashboard';
 import RegisterBusiness from './RegisterBusiness';
 import BusinessList from './BusinessList';
 import SingleBusiness from './SingleBusiness';
-import UpdateBusiness  from './UpdateBusiness';
-import AddReview from './AddReview';
+import EditBusiness  from './EditBusiness';
+import ReviewBusiness from './AddReview';
 
 
 
@@ -26,8 +26,8 @@ class Routes extends React.Component {
                 <Route path= '/registerbusiness' component= { RegisterBusiness } />
                 <Route path= '/businesslist' component= { BusinessList } />
                 <Route path= '/singlebusiness/:id' component= { SingleBusiness } />
-                <Route path= '/editbusiness' component= { EditBusiness  } />
-                <Route path= '/addreview' component= { AddReview } />
+                <Route path= '/editbusiness/:id' component= { EditBusiness  } />
+                <Route path= '/addreview/:id' component= { ReviewBusiness } />
 
             </div>
             <div>
