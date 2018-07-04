@@ -1,4 +1,4 @@
-import { REGISTER_USER, LOGIN_USER, LOGOUT__USER } from './types';
+import { REGISTER_USER, LOGIN_USER } from './types';
 import jwtDecode from 'jwt-decode'
 // import history from '../components/history';
 

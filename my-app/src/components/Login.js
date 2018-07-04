@@ -5,13 +5,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // import 'react-notifications/lib/notifications.css';
-import { NotificationManager } from 'react-notifications';
+// import { NotificationManager } from 'react-notifications';
 
 
 import './static/css/bootstrap.min.css';
 import './static/css/stylesform.css';
 import { loginUser } from '../actions/userActions';
 import Footer from './Footer';
+import AuthNavbar from "./AuthNavbar";
+
 
 
 class Login extends React.Component {
@@ -61,24 +63,7 @@ class Login extends React.Component {
         // console.log(this.props)
         return (
     <div>
-        <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-        <div className="navbar-header">
-            <a className="navbar-brand" href="/">WeConnect</a>
-            </div>
-          <ul className="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="help.html">Help</a></li>
-          </ul>
-          <ul className="nav navbar-nav navbar-right">
-          
-            <li><a href="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</a></li>
-            <li className="active"><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Sign In</a></li>
-            
-          </ul>
-        </div>
-      </nav>
+        <AuthNavbar />
               <div className="container">
                   
         <h3> Please sign in to do more</h3>

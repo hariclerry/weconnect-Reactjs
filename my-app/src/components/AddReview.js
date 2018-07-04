@@ -1,6 +1,7 @@
 import React from 'react';
 import './static/css/bootstrap.min.css'
 import './static/css/stylesform.css'
+// import {checkIfUserIsLoggedIn} from '../actions/userActions'
 import NavBar from './NavBar';
 import Footer from './Footer';
 

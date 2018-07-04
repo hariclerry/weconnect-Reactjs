@@ -4,11 +4,11 @@ import "./static/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 
 import { NotificationManager } from "react-notifications";
 import "./static/css/bootstrap.min.css";
 import { fetchBusinesses } from "../actions/businessActions";
+import {checkIfUserIsLoggedIn} from '../actions/userActions'
 import NavBar from "./NavBar";
 import Footer from './Footer';
 
@@ -26,6 +26,7 @@ class BusinessList extends React.Component {
   }
 
   componentDidMount() {
+    checkIfUserIsLoggedIn(this.props.email,this.props.history);
     this.props.fetchBusinesses();
   }
 
@@ -161,11 +162,13 @@ class BusinessList extends React.Component {
 }
 
 BusinessList.protoTypes = {
+  email: PropTypes.string.isRequired,
   fetchBusinesses: PropTypes.func.isRequired,
   businesses: PropTypes.object
 };
 
 const mapStateToProps = state => ({
+  email: state.auth.loginData.email,
   business: state.business.fetchBusinessMessage
 });
 

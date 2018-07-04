@@ -7,49 +7,33 @@ import PropTypes from  'prop-types';
 import { NavLink } from "react-router-dom";
 import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import { userBusinesses } from '../actions/businessActions';
-// import { NotificationManager } from "react-notifications";
+// TO DO: import { NotificationManager } from "react-notifications";
 
 
 
 class Dashboard extends React.Component {
 
-    // componentWillReceiveProps(recieved) {
-    //     if (recieved.business) {
-    //       if (recieved.business.message === "Business successfully registered") {
-    //         this.props.history.push("/businesslist");
-    //       } else {
-    //         if (recieved && recieved.business.status === "failure") {
-    //           NotificationManager.error(recieved.business.message, "", 5000);
-    //         }
-    //       }
-    //     }
-    //   }
-
-    componentWillMount(){
-       checkIfUserIsLoggedIn(this.props.email,this.props.history);
-    }
 
    
     
       componentDidMount() {
-          console.log(localStorage.getItem("user_id"))
         this.props.userBusinesses(localStorage.getItem("user_id"));
+        checkIfUserIsLoggedIn(this.props.email,this.props.history);
       }
     
         
     render () {
 
-        console.log(this.props.business.business_data);
     
         // returns all businesses from props int a dict
         const businesses = Object.values({ ...this.props.business.business_data });
-        // console.log("businesses:", this.props.business);
     
-        // sorts/arrange business from recently added to previous
+    
+        // sorts/arranges business from recently added to previous
         if (businesses) {
           Array.prototype.reverse.call(businesses);
         }
-        // const business = this.props.business.business_data;
+    
         return (
             <div>
                <NavBar />
@@ -147,7 +131,7 @@ class Dashboard extends React.Component {
 Dashboard.propTypes = {
     email: PropTypes.string.isRequired,
     userBusinesses: PropTypes.func.isRequired
-//  businesses: PropTypes.object
+
 };
 
 const mapStateToProps = state => ({

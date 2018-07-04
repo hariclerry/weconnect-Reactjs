@@ -9,7 +9,9 @@ import { withRouter } from 'react-router-dom';
 import { NotificationManager } from 'react-notifications';
 import './static/css/bootstrap.min.css'
 import { registerBusiness} from '../actions/businessActions';
+import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import Footer from './Footer';
+import NavBar from './NavBar';
 
 
 class RegisterBusiness extends React.Component {
@@ -25,6 +27,12 @@ class RegisterBusiness extends React.Component {
         }
 };
 
+
+componenWillMount() {
+        checkIfUserIsLoggedIn(this.props.email,this.props.history);
+   
+  }
+
 	jsonStringify = object =>{
         let simpleObj={};
             for (let prop in object){
@@ -39,7 +47,7 @@ class RegisterBusiness extends React.Component {
                 return JSON.stringify(simpleObj)}
 
     createBusiness = e => {
-        e.preventDefault(); // prevent the default link behavior of opening a new page
+        e.preventDefault(); // Prevent link from opening the URL(synthetic event):
         let businessCredential = {
             name: e.target.elements.name.value,
             category: e.target.elements.category.value,
@@ -52,34 +60,7 @@ class RegisterBusiness extends React.Component {
     render () {
         return (
             <div>
-                 <nav className="navbar navbar-inverse">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <a className="navbar-brand" href="/">WeConnect</a>
-      </div>
-     
-      
-        <ul className="nav navbar-nav navbar-right">
-            <li><a href=""><span className="glyphicon glyphicon-user"></span>User</a></li>
-            <li><a href="index.html"><span className="glyphicon glyphicon-log-out"></span> Logout</a></li>
-              </ul>
-       <ul className="nav navbar-nav">
-       <li><a href="/">Home</a></li>
-            <li>
-                <a href="/dashboard">Dasboard</a>
-            </li>
-            <li>
-                <a href="/registerbusiness">Register Business</a>
-            </li>
-            <li>
-                <a href="/businesslist">All Businesses</a>
-            </li>
-            <li>
-                <a href="/singlebusiness">Single Business</a>
-            </li>
-        </ul>
-  </div>
-  </nav>
+                 <NavBar />
     
              
                   
@@ -138,12 +119,14 @@ class RegisterBusiness extends React.Component {
 
 
 RegisterBusiness.protoTypes = {
+    email: PropTypes.string.isRequired,
     registerBusiness: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state =>({
+    email: state.auth.loginData.email,
     business: state.business.createBusinessMessage
 
 });
 
-export default  withRouter(connect(mapStateToProps,{ registerBusiness })(RegisterBusiness));
+export default  withRouter(connect(mapStateToProps,{registerBusiness })(RegisterBusiness));

@@ -12,6 +12,7 @@ import './static/css/bootstrap.min.css';
 import './static/css/jumbotron.css';
 import './static/css/styles.css';
 import { registerUser} from '../actions/userActions';
+import AuthNavbar from "./AuthNavbar";
 
 import Footer from './Footer';
 
@@ -55,27 +56,7 @@ class Signup extends React.Component {
     render () {
         return (
             <div>
-                <nav className="navbar navbar-inverse">
-                <div className="container-fluid">
-                  <div className="navbar-header">
-                    <a className="navbar-brand" href="/">WeConnect</a>
-                  </div>
-                  <ul className="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="help.html">Help</a></li>
-                  </ul>
-                  <ul className="nav navbar-nav navbar-right">
-                  
-                
-                   
-                     
-                    <li className="active"><a href="/signup"><span className="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                    <li><a href="/login"><span className="glyphicon glyphicon-log-in"></span>Sign In</a></li>
-                    
-                  </ul>
-                </div>
-              </nav>
+                <AuthNavbar />
 
               <div className="container">
                 <h3> Please fill in the registration form below to sign in</h3>

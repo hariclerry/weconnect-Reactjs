@@ -1,10 +1,64 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+// import 'react-notifications/lib/notifications.css';
+
+import { NotificationManager } from 'react-notifications';
+import './static/css/bootstrap.min.css'
+import { editBusiness} from '../actions/businessActions';
+import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import './static/css/bootstrap.min.css'
 import NavBar from './NavBar';
 import Footer from './Footer';
+// TO DO: import {checkIfUserIsLoggedIn} from '../actions/userActions';
 
 
-export default class UpdateBusiness extends React.Component {
+class EditBusiness extends React.Component {
+
+  componentWillReceiveProps(recieved) {
+    if (recieved && recieved.business.message === "Business successfully registered") {
+        this.props.history.push('/dashboard');
+    }
+    else{
+        if(recieved && recieved.business.status === "failure"){
+            NotificationManager.error(recieved.business.message, "", 5000);
+        }
+    }
+};
+
+
+componenWillMount() {
+    checkIfUserIsLoggedIn(this.props.email,this.props.history);
+
+}
+
+jsonStringify = object =>{
+    let simpleObj={};
+        for (let prop in object){
+                if (!object.hasOwnProperty(prop)){
+                        continue;
+                    }
+                if (typeof(object[prop]) === 'object'){
+                        continue;
+                    }
+                simpleObj[prop] = object[prop];
+            }
+            return JSON.stringify(simpleObj)}
+
+updateBusiness = e => {
+    e.preventDefault(); // Prevent link from opening the URL(synthetic event):
+    let businessCredential = {
+        name: e.target.elements.name.value,
+        category: e.target.elements.category.value,
+        location: e.target.elements.location.value,
+        description: e.target.elements.description.value
+    };
+  
+    // this.props.editBusiness(this.jsonStringify(businessCredential))
+
+}
     render () {
         return (
     <div>
@@ -18,7 +72,7 @@ export default class UpdateBusiness extends React.Component {
                         </div>
                         <hr/>
                         <div style={{margin: "100px"}}>
-                        <form>
+                        <form onSubmit={this.updateBusiness }>
                           
                             <div className="form-group"> 
                               <label className="control-label requiredField" for="title">Business Name:</label>
@@ -63,3 +117,16 @@ export default class UpdateBusiness extends React.Component {
         )
     }
 }
+
+UpdateBusiness.protoTypes = {
+  email: PropTypes.string.isRequired,
+  editBusiness: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state =>({
+  email: state.auth.loginData.email,
+  business: state.business.editBusinessMessage
+
+});
+
+export default  withRouter(connect(mapStateToProps,{editBusiness })(EditBusiness));

@@ -1,5 +1,5 @@
 // import history from '../components/history';
-import { REGISTER_BUSINESS, FETCH_BUSINESSES,  SINGLE_BUSINESS,  USER_BUSINESSES  } from './types';
+import { REGISTER_BUSINESS, FETCH_BUSINESSES,  SINGLE_BUSINESS,  DELETE_BUSINESS,  USER_BUSINESSES, UPDATE_BUSINESS} from './types';
 
 
 export const registerBusiness = credentials => dispatch => {
@@ -17,8 +17,7 @@ export const registerBusiness = credentials => dispatch => {
     .then(data => {dispatch(
         {type: REGISTER_BUSINESS,
         message: data}
-    );
-    console.log(data)
+    )
     // history.push('/dashboard')
     ;})
 }
@@ -65,7 +64,6 @@ export const userBusinesses = (userid) => dispatch => {
 
 
 export const singleBusiness = (id) => dispatch => {
-    console.log("fetching...")
     let options = {
         method: 'GET',
         headers: {
@@ -76,7 +74,50 @@ export const singleBusiness = (id) => dispatch => {
     return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {dispatch(
-        {type: FETCH_BUSINESSES,
+        {type: SINGLE_BUSINESS,
+        message: data}
+    );
+    console.log(data)
+    // history.push('/dashboard')
+    ;})
+}
+
+
+
+
+export const deleteBusiness = (id) => dispatch => {
+    console.log("LOGGING: deleting...")
+    let options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type':'application/json',
+            'access_token': localStorage.getItem('access_token')
+            }
+    };
+    return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
+    .then(response => response.json())
+    .then(data => {dispatch(
+        {type: DELETE_BUSINESS,
+        message: data}
+    );
+    console.log(data)
+    // history.push('/dashboard')
+    ;})
+}
+
+export const updateBusiness = (id) => dispatch => {
+    console.log("LOGGING: updatinggggg...")
+    let options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type':'application/json',
+            'access_token': localStorage.getItem('access_token')
+            }
+    };
+    return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
+    .then(response => response.json())
+    .then(data => {dispatch(
+        {type: UPDATE_BUSINESS,
         message: data}
     );
     console.log(data)

@@ -26,9 +26,6 @@ const NavBar = ({logoutUser}) =>(
             <li>
                 <a href="/businesslist">All Businesses</a>
             </li>
-            <li>
-                <a href="/singlebusiness">Single Business</a>
-            </li>
         </ul>
               </div>
               </nav>
