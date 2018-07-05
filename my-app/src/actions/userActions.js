@@ -41,6 +41,7 @@ export const loginUser = credentials => dispatch => {
        return dispatch( { type: LOGIN_USER,
         user: {   email: user.email,
                 id: user.sub,
+                username: user.username,
                 access_token: data.access_token }
        });
     });

@@ -97,7 +97,7 @@ class Signup extends React.Component {
                                 placeholder="Enter password"
                                 />
                        </div>
-                       <div className="form-group">
+                       <div className="form-group" className="fixed">
                            <button type="submit" className="btn btn-success btn-lg">Submit</button>
                        </div>
                    </form>

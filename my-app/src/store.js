@@ -4,8 +4,6 @@ import thunk from 'redux-thunk'; //middleware import
 import mainReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
-
 const weconnectStore = createStore(mainReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export  default weconnectStore;

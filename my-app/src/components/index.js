@@ -7,8 +7,8 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import RegisterBusiness from './RegisterBusiness';
 import BusinessList from './BusinessList';
-import SingleBusiness from './SingleBusiness';
-import EditBusiness  from './EditBusiness';
+import Business from '../containers/SingleBusiness';
+import EditBusinessContainer  from '../containers/EditBusiness';
 import ReviewBusiness from './AddReview';
 
 
@@ -25,8 +25,8 @@ class Routes extends React.Component {
                 <Route path= '/dashboard' component= { Dashboard } />
                 <Route path= '/registerbusiness' component= { RegisterBusiness } />
                 <Route path= '/businesslist' component= { BusinessList } />
-                <Route path= '/singlebusiness/:id' component= { SingleBusiness } />
-                <Route path= '/editbusiness/:id' component= { EditBusiness  } />
+                <Route path= '/singlebusiness/:id' component= { Business } />
+                <Route path= '/editbusiness/:id' component= { EditBusinessContainer  } />
                 <Route path= '/addreview/:id' component= { ReviewBusiness } />
 
             </div>

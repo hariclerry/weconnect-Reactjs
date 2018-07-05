@@ -4,7 +4,7 @@ import NavBar   from './NavBar';
 import Footer from './Footer';
 import {connect} from 'react-redux';
 import PropTypes from  'prop-types';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import { userBusinesses } from '../actions/businessActions';
 // TO DO: import { NotificationManager } from "react-notifications";
@@ -75,13 +75,13 @@ class Dashboard extends React.Component {
                   businesses.map((business, index) => (
                     <tr key={business.id}>
                       <td>
-                        <NavLink
+                        <Link
                           to={`/singlebusiness/${business.id}`}
                           style={{ textDecoration: "None" }}
                         >
                           {" "}
                           {business["name"]}
-                        </NavLink>
+                        </Link>
                     </td>
                       <td>{business.category}</td>
                       <td>{business.location}</td>

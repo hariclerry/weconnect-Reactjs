@@ -14,7 +14,8 @@ if(token){
  const user = jwtDecode(token)
  weconnectStore.dispatch( { type: LOGIN_USER,
   user: {   email: user.email,
-          id: user.sub,
+            username: user.username,
+           id: user.sub,
           access_token: token }
  })
 }

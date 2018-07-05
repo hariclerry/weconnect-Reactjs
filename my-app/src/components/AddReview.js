@@ -5,12 +5,14 @@ import './static/css/stylesform.css'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+
 
 // import 'react-notifications/lib/notifications.css';
 
 import { NotificationManager } from 'react-notifications';
 import './static/css/bootstrap.min.css'
-import { reviewBusiness} from '../actions/businessActions';
+import { reviewBusiness, fetchReview } from '../actions/businessActions';
 import {checkIfUserIsLoggedIn} from '../actions/userActions';
 import Footer from './Footer';
 import NavBar from './NavBar';
@@ -19,22 +21,32 @@ import NavBar from './NavBar';
 
 class ReviewBusiness extends React.Component {
 
-    componentWillReceiveProps(recieved) {
-        if (recieved && recieved.review.message === "Business successfully registered") {
-            this.props.history.push('/dashboard');
-        }
-        else{
-            if(recieved && recieved.review.status === "failure"){
-                NotificationManager.error(recieved.review.message, "", 5000);
-            }
-        }
-};
+//     componentWillReceiveProps(recieved) {
+//         if (recieved && recieved.review.message === "Business successfully registered") {
+//             this.props.history.push('/addreview');
+//         }
+//         else{
+//             if(recieved && recieved.review.status === "failure"){
+//                 NotificationManager.error(recieved.review.message, "", 5000);
+//             }
+//         }
+// };
 
 
-componenWillMount() {
+    componentDidMount() {
         checkIfUserIsLoggedIn(this.props.email,this.props.history);
-   
-  }
+        const businessId = this.props.match.params.id
+        // const reviewId = this.props.match.params.idd
+        this.props.viewReview(businessId).then( ()=> {
+            // console.log("-------awesome---",  this.props.businessReviews)
+            // this.props.history.push('/dashboard');
+        })
+        // console.log(this.props.viewReview(businessId).review_data);
+        // const review = this.props.match.params.id
+        // this.props.viewReview(reviewId);
+        // this.props.history.push("/addreview/:id");
+
+    }
 
 	jsonStringify = object =>{
         let simpleObj={};
@@ -55,14 +67,38 @@ componenWillMount() {
             description: e.target.elements.description.value
         };
         const businessId = this.props.match.params.id
-        console.log(this.props.match);
-        this.props.reviewBusiness(businessId, this.jsonStringify(businessCredential))
+        // console.log(businessId);
+        this.props.reviewBusiness(businessId, this.jsonStringify(businessCredential)).then(()=>{
+        //    this.props.history.push('/addreview/:id');
+        }).catch(err=>{
+            console.log(err.data);
+            alert('addReview');
+        });
+    
         // this.props.reviewBusiness(businessId)
 
 
     }
 
+//     componentDidMount() {
+//         //  this.props.fetchReview();
+//         this.props.history.push("/addreview");
+   
+//   }
+
     render () {
+   
+    
+    // returns all businesses from props int a dict
+    const reviews = Object.values({ ...this.props.businessReviews });
+    // this.props.history.push("/addreview/:id");
+    // const reviews = Object.assign({}, this.props.viewReview.review_data);
+    // console.log(this.props.viewReview.review_data);
+
+    // sorts/arrange business from recently added to previous
+    if (reviews) {
+      Array.prototype.reverse.call(reviews);
+    }
         return (
     <div>
     
@@ -75,19 +111,6 @@ componenWillMount() {
         
                 <hr/>
                           
-                            
-                              <p>
-                             <b>Harriet:</b>
-
-                            <p>Awesome services, good customer care, great feedback.</p>
-                   
-                              </p>
-                              <p>
-                                    <b>Bob:</b>
-       
-                                   <p>Excellent services, good customer care, definitely recommends to someone.</p>
-                          
-                                     </p>
                 
                 </div>
                 
@@ -96,7 +119,7 @@ componenWillMount() {
                             <form   onSubmit={this.addReview } >
                                     <div className="form-group">
                                             <label className="control-label " for="description">Say Something about this Business:</label>
-                                            <textarea className="form-control" cols="5" id="description" name="description" rows="5"></textarea>
+                                            <textarea className="form-control" cols="2" id="description" name="description" rows="5"></textarea>
                                           </div>
                   
                                 
@@ -104,9 +127,44 @@ componenWillMount() {
                                     <button className="btn btn-primary " name="submit" type="submit">Add Review</button>
                                   </div>
                                 </form>
-                   
+                                
+                                {this.props.username}
                           </div>
-                    
+                          <div className="table-responsive">
+            <table className="table table-striped">
+              <thead>
+            <td>
+                  <b>Description</b>
+                </td>
+                <td>
+                  <b>says:</b>
+                </td>
+              </thead>
+              <tbody>
+                {this.props.loading ? (
+                  <tr>
+                    <td colSpan={6}>
+                      <div className="text-center  alert alert-info">
+                        <span>Loading businesses</span>
+                      </div>
+                    </td>
+                  </tr>
+                ) : (
+                  reviews.map((review, index) => (
+                    <tr key={review.id}>
+                    <td>
+                        {this.props.username}
+                </td>
+                      <td>{review.description}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+
+                
+        
 
     <br/>
     <br/>
@@ -131,15 +189,28 @@ componenWillMount() {
     }
 }
 
-ReviewBusiness.protoTypes = {
+ReviewBusiness.propTypes = {
     email: PropTypes.string.isRequired,
-    reviewBusiness: PropTypes.func.isRequired
+    reviewBusiness: PropTypes.func.isRequired,
+    review: PropTypes.func.isRequired,
+    viewReview: PropTypes.func.isRequired,
+    businessReviews: PropTypes.object.isRequired
 }
 
-const mapStateToProps = state =>({
+const mapStateToProps = state => {
+   console.log(state, '--');
+ return ({
+    username: state.auth.loginData.username,
     email: state.auth.loginData.email,
-    review: state.business.reviewBusinessMessage
+    review: state.business.reviewBusinessMessage,
+    businessReviews: state.business.fetchReviewMessage.review_data
+ });
+};
 
-});
+const mapDispatchToProps = dispatch => ({
+    viewReview: (id) => dispatch(fetchReview(id)),
+    reviewBusiness: (id, data)=> dispatch(reviewBusiness(id, data))
+  });
+  
 
-export default  withRouter(connect(mapStateToProps,{reviewBusiness })(ReviewBusiness));
+export default  withRouter(connect(mapStateToProps,mapDispatchToProps)(ReviewBusiness));

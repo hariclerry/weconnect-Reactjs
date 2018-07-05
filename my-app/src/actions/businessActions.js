@@ -105,10 +105,11 @@ export const deleteBusiness = (id) => dispatch => {
     ;})
 }
 
-export const editBusiness = (id) => dispatch => {
+export const editBusiness = (id, data) => dispatch => {
     console.log("LOGGING: updatinggggg...")
     let options = {
         method: 'PUT',
+        body: data,
         headers: {
             'Content-Type':'application/json',
             'access_token': localStorage.getItem('access_token')
@@ -155,13 +156,13 @@ export const fetchReview = (id) => dispatch => {
             'access_token': localStorage.getItem('access_token')
             }
     };
+
     return fetch(`http://127.0.0.1:5000/v1/api/business/${id}/reviews`, options)
     .then(response => response.json())
-    .then(data => {dispatch(
-        {type: FETCH_BUSINESS_REVIEWS,
-        message: data}
-    );
-    console.log(data)
-    // history.push('/dashboard')
-    ;})
+    .then(data => {
+        dispatch({
+            type: FETCH_BUSINESS_REVIEWS,
+            message: data
+        });
+    });
 }

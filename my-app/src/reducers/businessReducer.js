@@ -29,6 +29,7 @@ export default (state = initialState, action)=>{
         case EDIT_BUSINESS:
             return {...state,  editBusinessMessage:action.message}
         case REVIEW_BUSINESS:
+        console.log(action.message);
             return {...state,  reviewBusinessMessage:action.message}
         case FETCH_BUSINESS_REVIEWS:
             return {...state,  fetchReviewMessage:action.message}
