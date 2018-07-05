@@ -81,11 +81,6 @@ export default class Index extends React.Component {
             </div>
           </div>
         </div>
-
-        <br />
-        <br />
-        <br />
-        <br />
         <Footer />
       </div>
     );

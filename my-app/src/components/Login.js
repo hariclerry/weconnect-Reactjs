@@ -103,13 +103,6 @@ class Login extends React.Component {
             <div className="clearfix" />
           </form>
         </div>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <Footer />
       </div>
     );

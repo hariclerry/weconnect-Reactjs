@@ -54,23 +54,6 @@ const SingleBusiness = ({ business, loaded, deleteBusiness }) => (
         </button>
       </div>
     </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <Footer />
   </div>
 );
