@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 
 import { NotificationManager } from "react-notifications";
 import EditBusiness from "../components/EditBusiness";
-import { jsonStringify } from '../utils/jsonHelper'
+import { jsonStringify } from "../utils/jsonHelper";
 import "../components/static/css/bootstrap.min.css";
 import { editBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";

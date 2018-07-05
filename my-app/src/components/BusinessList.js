@@ -4,13 +4,14 @@ import "./static/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { NotificationManager } from "react-notifications";
 import "./static/css/bootstrap.min.css";
 import { fetchBusinesses } from "../actions/businessActions";
-import {checkIfUserIsLoggedIn} from '../actions/userActions'
+import { checkIfUserIsLoggedIn } from "../actions/userActions";
 import NavBar from "./NavBar";
-import Footer from './Footer';
+import Footer from "./Footer";
 
 class BusinessList extends React.Component {
   componentWillReceiveProps(recieved) {
@@ -26,7 +27,7 @@ class BusinessList extends React.Component {
   }
 
   componentDidMount() {
-    checkIfUserIsLoggedIn(this.props.email,this.props.history);
+    checkIfUserIsLoggedIn(this.props.email, this.props.history);
     this.props.fetchBusinesses();
   }
 
@@ -123,13 +124,14 @@ class BusinessList extends React.Component {
                       <td>{business.location}</td>
                       <td>{business.description}</td>
                       <td>
-                        <a
-                          href="/addreview"
+                        <Link
+                          to={`/addreview/${business.id}`}
                           className="btn btn-info"
                           role="button"
+                          style={{ marginRight: "20px" }}
                         >
                           Review
-                        </a>
+                        </Link>
                       </td>
                     </tr>
                   ))

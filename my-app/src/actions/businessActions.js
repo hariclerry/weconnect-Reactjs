@@ -142,7 +142,7 @@ export const reviewBusiness = (id, credentials) => dispatch => {
         {type: REVIEW_BUSINESS,
         message: data}
     );
-    console.log(data)
+    
     // history.push('/dashboard')
     ;})
 }
@@ -162,7 +162,8 @@ export const fetchReview = (id) => dispatch => {
     .then(data => {
         dispatch({
             type: FETCH_BUSINESS_REVIEWS,
-            message: data
-        });
+            message: data}
+        );
+        console.log("Data received:",data)
     });
 }

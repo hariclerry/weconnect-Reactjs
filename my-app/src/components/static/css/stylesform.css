@@ -9,9 +9,10 @@ body{
     color: black;
     height: auto;
     max-width: 800px;
-    background-image: url(../images/pexels.jpg);
+    background-image: url(../images/cool2.jpg);
     background-size: cover;
 }
+
 
 #log-in-form .heading{
 	text-align: center;

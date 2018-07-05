@@ -10,7 +10,9 @@ const initialState = {
     deleteBusinessMessage: {},
     editBusinessMessage: {},
     reviewBusinessMessage: {},
-    fetchReviewMessage: {}
+    fetchReviewMessage: {
+        review_data:[]
+    }
   
 };
 
