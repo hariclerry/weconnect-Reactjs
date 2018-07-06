@@ -55,6 +55,7 @@ class Reviews extends React.Component {
 }
 Reviews.protoTypes = {
   email: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
   businessReviews: PropTypes.array.isRequired,
   fetchReview: PropTypes.func.isRequired
 };

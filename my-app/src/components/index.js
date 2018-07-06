@@ -6,7 +6,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import RegisterBusiness from "./RegisterBusiness";
-import BusinessList from "./BusinessList";
+import BusinessList from "../containers/BusinessList";
 import Business from "../containers/SingleBusiness";
 import EditBusinessContainer from "../containers/EditBusiness";
 import Reviews from "../containers/Reviews";

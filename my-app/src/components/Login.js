@@ -12,6 +12,7 @@ import "./static/css/stylesform.css";
 import { loginUser } from "../actions/userActions";
 import Footer from "./Footer";
 import AuthNavbar from "./AuthNavbar";
+import "./static/css/fix-footer.css";
 
 class Login extends React.Component {
   //     componentWillReceiveProps(recieved) {
@@ -68,7 +69,7 @@ class Login extends React.Component {
         <hr />
         <div className="container" id="log-in-form">
           <div className="heading">
-            <h1 style={ {textShadow: "0 1px 0 black", color:"green"}}>Log In Your Account</h1>
+            <h1 style={ {textShadow: "0 0 0 black", color:"#000000"}}>Log In Your Account</h1>
           </div>
           <form onSubmit={this.Login}>
             <div className="form-group">
