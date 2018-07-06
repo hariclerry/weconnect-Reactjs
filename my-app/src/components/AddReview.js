@@ -62,9 +62,9 @@ const ReviewBusiness = ({ reviews, addReview, username }) => (
             {reviews.map((review, index) => (
                     <tr key={review.id}>
                     <td>
-                        {username}
+                        {review.username}
                 </td>
-                      <td>{review.review}</td>
+                      <td>{review.description}</td>
                     </tr>
                   ))
                 }
