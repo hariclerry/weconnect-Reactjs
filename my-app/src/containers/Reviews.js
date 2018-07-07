@@ -7,8 +7,13 @@ import { withRouter } from "react-router-dom";
 // TO DO:import { NotificationManager } from "react-notifications";
 import { jsonStringify } from "../utils/jsonHelper";
 import AddReview from "../components/AddReview";
-import { fetchReview, reviewBusiness } from "../actions/businessActions";
+import { singleBusiness, fetchReview, reviewBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
+
+/**
+ * Review Container Component for adding a review and view all the reviews.
+ * 
+ */
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -17,6 +22,8 @@ class Reviews extends React.Component {
 
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
+    const { id } = this.props.match.params;
+    this.props.singleBusiness(id);
   }
 
   componentWillMount() {
@@ -49,6 +56,7 @@ class Reviews extends React.Component {
         reviews={this.props.reviews}
         addReview={this.addReview}
         username={this.props.username}
+        businessName={this.props.businessName}
       />
     );
   }
@@ -57,7 +65,8 @@ Reviews.protoTypes = {
   email: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   businessReviews: PropTypes.array.isRequired,
-  fetchReview: PropTypes.func.isRequired
+  fetchReview: PropTypes.func.isRequired,
+  businessName: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -66,11 +75,13 @@ const mapStateToProps = state => {
     username: state.auth.loginData.username,
     email: state.auth.loginData.email,
     businessReviews: state.business.fetchReviewMessage,
-    reviews: state.business.fetchReviewMessage.review_data
+    reviews: state.business.fetchReviewMessage.review_data,
+    businessName: state.business.singleBusinessMessage.business_data,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
+  singleBusiness: id => dispatch(singleBusiness(id)),
   fetchReview: id => dispatch(fetchReview(id)),
   reviewBusiness: (id, data) => dispatch(reviewBusiness(id, data))
 });

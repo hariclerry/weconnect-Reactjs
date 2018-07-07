@@ -1,22 +1,33 @@
 import React from "react";
+
+// import { NotificationManager } from "react-notifications";
+import Footer from "./Footer";
+import NavBar from "./NavBar";
+
 import "./static/css/bootstrap.min.css";
 import "./static/css/stylesform.css";
 import "./static/css/fix-footer.css";
 
-// import 'react-notifications/lib/notifications.css';
-
-import { NotificationManager } from "react-notifications";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
-
-const ReviewBusiness = ({ reviews, addReview, username }) => (
+const ReviewBusiness = ({ reviews, addReview, businessName }) => (
   <div>
     <NavBar />
     <div className="container">
-      <div style={{ margin: "3%" }}>
-        <h3 className="text-center">
-          Below is a list of reviews on this particular business
-        </h3>
+      <div style={{ margin: "20px" }}>
+      <div className="col-md-8 col-md-offset-2">
+        <h1>{businessName.name}</h1>
+        <p>
+          <b>Category: </b> {businessName.category}
+        </p>
+        <p>
+          <b>Location: </b>
+          {businessName.location}
+        </p>
+        <p>
+          <b>Description: </b>
+          {businessName.description}
+        </p>
+
+      </div>
       </div>
 
       <hr />
@@ -33,7 +44,7 @@ const ReviewBusiness = ({ reviews, addReview, username }) => (
             cols="2"
             id="description"
             name="description"
-            rows="5"
+            rows="2"
           />
         </div>
 
@@ -44,34 +55,25 @@ const ReviewBusiness = ({ reviews, addReview, username }) => (
         </div>
       </form>
     </div>
-    <div className="fixed-footer">
-      <div className="table-responsive">
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <b>says:</b>
-              </td>
-            </tr>
-          </thead>
-          <tbody>
-            {console.log(reviews, "reviewszzzzzcc")}
-            {reviews.map((review, index) => (
-                    <tr key={review.id}>
-                    <td>
-                        {username}
-                </td>
-                      <td>{review.review}</td>
-                    </tr>
+
+
+       <div style={{ width: "auto", margin: "10%"}}>
+        <h3>Reviews</h3>
+        {reviews.map((review, index) => (
+        <p key={review.id}>
+                
+          <div style={{ width: "auto", padding: "10px", border: "0 solid gray", margin: "0", backgroundColor: "#e6e6e6"}}>             
+          <ul className="list-group">
+        <h4 style={{color: "green"}}>{review.username} says:</h4>
+        {review.description}
+        </ul>
+        </div>
+        </p>
                   ))
                 }
-          </tbody>
-        </table>
+      
       </div>
-    </div>
+
 
     <Footer />
   </div>

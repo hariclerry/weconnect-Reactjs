@@ -4,7 +4,7 @@ import "./static/css/fix-footer.css";
 const Footer = () => (
   <div>
     <div className="footer">
-      <footer className="row">
+      <footer className="container-fluid text-center" data-offset-bottom="10">
         <div className="panel-footer text-center bg-dark">
           <p>
             {" "}

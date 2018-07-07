@@ -4,69 +4,30 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-// import 'react-notifications/lib/notifications.css';
-
 import { NotificationManager } from "react-notifications";
-
+import AuthNavbar from "./AuthNavbar";
+import Footer from "./Footer";
 import "./static/css/bootstrap.min.css";
 import "./static/css/jumbotron.css";
 import "./static/css/styles.css";
-import { registerUser } from "../actions/userActions";
-import AuthNavbar from "./AuthNavbar";
 
-import Footer from "./Footer";
 
-class Signup extends React.Component {
-  componentWillReceiveProps(recieved) {
-    if (
-      recieved &&
-      recieved.user.message === "Registration successful. Please login."
-    ) {
-      // this.props.history.push('/login');
-    } else {
-      if (recieved && recieved.user.status === "failure") {
-        NotificationManager.error(recieved.user.message, "", 5000);
-      }
-    }
-  }
+const UserRegistration = ({ signUp }) => (
+ 
 
-  jsonStringify = object => {
-    let simpleObj = {};
-    for (let prop in object) {
-      if (!object.hasOwnProperty(prop)) {
-        continue;
-      }
-      if (typeof object[prop] === "object") {
-        continue;
-      }
-      simpleObj[prop] = object[prop];
-    }
-    return JSON.stringify(simpleObj);
-  };
-
-  signUp = e => {
-    e.preventDefault(); //o prevent the default link behavior of opening a new page
-    let userCredential = {
-      username: e.target.elements.name.value,
-      email: e.target.elements.email.value,
-      password: e.target.elements.password.value
-    };
-    this.props.registerUser(this.jsonStringify(userCredential));
-  };
-  render() {
-    return (
       <div>
+        
         <AuthNavbar />
 
         <div className="container">
-          <h3> Please fill in the registration form below to sign in</h3>
+          <h3> Please register to login</h3>
         </div>
         <hr />
         <div className="container" id="registration-form">
           <div className="image" />
           <div className="frm">
             <h1>Sign up</h1>
-            <form onSubmit={this.signUp}>
+            <form onSubmit={signUp}>
               <div className="form-group">
                 <label htmlFor="username">Username:</label>
                 <input
@@ -108,20 +69,6 @@ class Signup extends React.Component {
         <Footer />
       </div>
     );
-  }
-}
 
-Signup.protoTypes = {
-  registerUser: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => ({
-  user: state.auth.signupMessage
-});
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { registerUser }
-  )(Signup)
-);
+    export default UserRegistration;
+ 

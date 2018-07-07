@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 import "./static/css/bootstrap.min.css";
 
-const SingleBusiness = ({ business, loaded, deleteBusiness }) => (
+const SingleBusiness = ({ business, deleteBusiness }) => (
   <div>
     <NavBar />
     <div className="container">

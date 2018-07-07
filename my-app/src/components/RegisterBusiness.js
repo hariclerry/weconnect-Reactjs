@@ -1,62 +1,11 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-
-// import 'react-notifications/lib/notifications.css';
-
-import { NotificationManager } from "react-notifications";
-import "./static/css/bootstrap.min.css";
-import { registerBusiness } from "../actions/businessActions";
-import { checkIfUserIsLoggedIn } from "../actions/userActions";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import "./static/css/bootstrap.min.css";
 
-class RegisterBusiness extends React.Component {
-  componentWillReceiveProps(recieved) {
-    if (
-      recieved &&
-      recieved.business.message === "Business successfully registered"
-    ) {
-      this.props.history.push("/dashboard");
-    } else {
-      if (recieved && recieved.business.status === "failure") {
-        NotificationManager.error(recieved.business.message, "", 5000);
-      }
-    }
-  }
-
-  componenWillMount() {
-    checkIfUserIsLoggedIn(this.props.email, this.props.history);
-  }
-
-  jsonStringify = object => {
-    let simpleObj = {};
-    for (let prop in object) {
-      if (!object.hasOwnProperty(prop)) {
-        continue;
-      }
-      if (typeof object[prop] === "object") {
-        continue;
-      }
-      simpleObj[prop] = object[prop];
-    }
-    return JSON.stringify(simpleObj);
-  };
-
-  createBusiness = e => {
-    e.preventDefault(); // Prevent link from opening the URL(synthetic event):
-    let businessCredential = {
-      name: e.target.elements.name.value,
-      category: e.target.elements.category.value,
-      location: e.target.elements.location.value,
-      description: e.target.elements.description.value
-    };
-    this.props.registerBusiness(this.jsonStringify(businessCredential));
-  };
-  render() {
-    return (
+const RegisterBusiness = ({ createBusiness }) => (
+  
       <div>
         <NavBar />
 
@@ -65,7 +14,7 @@ class RegisterBusiness extends React.Component {
         </div>
         <hr />
         <div style={{ margin: "100px" }}>
-          <form onSubmit={this.createBusiness}>
+          <form onSubmit={createBusiness}>
             <div className="form-group">
               <label className="control-label requiredField" htmlFor="title">
                 Business Name:
@@ -125,22 +74,5 @@ class RegisterBusiness extends React.Component {
         <Footer />
       </div>
     );
-  }
-}
 
-RegisterBusiness.protoTypes = {
-  email: PropTypes.string.isRequired,
-  registerBusiness: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => ({
-  email: state.auth.loginData.email,
-  business: state.business.createBusinessMessage
-});
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { registerBusiness }
-  )(RegisterBusiness)
-);
+export default RegisterBusiness;

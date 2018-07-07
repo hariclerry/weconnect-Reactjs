@@ -3,48 +3,41 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-// import { NavLink } from 'react-router-dom';
 
 // TO DO:import { NotificationManager } from "react-notifications";
-import SingleBusiness from "../components/SingleBusiness";
+
 import { singleBusiness, deleteBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
+import SingleBusiness from "../components/SingleBusiness";
 
 class Business extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false
-    };
-  }
 
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
     const { id } = this.props.match.params;
     this.props.singleBusiness(id);
-    // this.setState({loaded: true})
   }
-
+  // Business delete function
   deleteBusiness = id => {
     if (window.confirm("Are you sure you want to delete this business?")) {
       this.props.deleteBusiness(id).then(() => {
-        console.log(" confirmed deleted........");
       });
       this.props.history.push("/dashboard");
     }
   };
+
   render() {
+    // Deconstructing
     const { business } = this.props;
-    const { loaded } = this.state;
     return (
       <SingleBusiness
         business={business}
         deleteBusiness={this.deleteBusiness}
-        loaded={loaded}
       />
     );
   }
 }
+
 SingleBusiness.protoTypes = {
   email: PropTypes.string.isRequired,
   singleBusiness: PropTypes.func.isRequired,

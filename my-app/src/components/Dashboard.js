@@ -1,31 +1,15 @@
 import React from "react";
-import "./static/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { checkIfUserIsLoggedIn } from "../actions/userActions";
-import { userBusinesses } from "../actions/businessActions";
+
+import "./static/css/bootstrap.min.css";
 import "./static/css/fix-footer.css";
 // TO DO: import { NotificationManager } from "react-notifications";
 
-class Dashboard extends React.Component {
-  componentDidMount() {
-    this.props.userBusinesses(localStorage.getItem("user_id"));
-    checkIfUserIsLoggedIn(this.props.email, this.props.history);
-  }
-
-  render() {
-    // returns all businesses from props int a dict
-    const businesses = Object.values({ ...this.props.business.business_data });
-
-    // sorts/arranges business from recently added to previous
-    if (businesses) {
-      Array.prototype.reverse.call(businesses);
-    }
-
-    return (
+const Dashboard = ({ businesses }) => (
+  
       <div>
         <NavBar />
         <div className="container">
@@ -41,24 +25,14 @@ class Dashboard extends React.Component {
             <div className="table-responsive">
               <table className="table table-striped">
                 <thead>
-                  <td>
-                    <b>Name</b>
-                  </td>
-                  <td>
-                    <b>Category</b>
-                  </td>
-                  <td>
-                    <b>Location</b>
-                  </td>
-                  <td>
-                    <b>Description</b>
-                  </td>
-                  <td>
-                    <b>Review</b>
-                  </td>
+                  <td><b>Name</b></td>
+                  <td><b>Category</b></td>
+                  <td><b>Location</b></td>
+                  <td><b>Description</b></td>
+                  <td><b>Review</b></td>
                 </thead>
                 <tbody>
-                  {this.props.loading ? (
+                  {this.loading ? (
                     <tr>
                       <td colSpan={6}>
                         <div className="text-center  alert alert-info">
@@ -101,23 +75,6 @@ class Dashboard extends React.Component {
 
         <Footer />
       </div>
-    );
-  }
-}
+   );
 
-// Validate props
-
-Dashboard.propTypes = {
-  email: PropTypes.string.isRequired,
-  userBusinesses: PropTypes.func.isRequired
-};
-
-const mapStateToProps = state => ({
-  email: state.auth.loginData.email,
-  business: state.business.userBusinessMessage
-});
-
-export default connect(
-  mapStateToProps,
-  { checkIfUserIsLoggedIn, userBusinesses }
-)(Dashboard);
+  export default Dashboard;

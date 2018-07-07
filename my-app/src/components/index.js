@@ -2,14 +2,15 @@ import React from "react";
 import { Route, withRouter } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
 import Index from "./IndexPage";
-import Signup from "./Signup";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
-import RegisterBusiness from "./RegisterBusiness";
+import Signup from "../containers/Signup";
+import Login from "../containers/Login";
+import Dashboard from "../containers/Dashboard";
+import RegisterBusiness from "../containers/RegisterBusiness";
 import BusinessList from "../containers/BusinessList";
 import Business from "../containers/SingleBusiness";
 import EditBusinessContainer from "../containers/EditBusiness";
 import Reviews from "../containers/Reviews";
+// import RegisterBusiness from "./RegisterBusiness";
 // import ReviewBusiness from './AddReview';
 
 class Routes extends React.Component {

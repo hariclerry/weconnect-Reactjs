@@ -6,9 +6,7 @@ import Footer from "./Footer";
 import "./static/css/bootstrap.min.css";
 import "./static/css/jumbotron.css";
 
-export default class Index extends React.Component {
-  render() {
-    return (
+const IndexPage = () => (
       <div>
         <AuthNavbar />
 
@@ -84,5 +82,4 @@ export default class Index extends React.Component {
         <Footer />
       </div>
     );
-  }
-}
+export default IndexPage;
