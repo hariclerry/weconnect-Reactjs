@@ -30,9 +30,7 @@ class Routes extends React.Component {
           <Route path="/editbusiness/:id" component={EditBusinessContainer} />
           <Route path="/addreview/:id" component={Reviews} />
         </div>
-        <div>
           <NotificationContainer />
-        </div>
       </div>
     );
   }

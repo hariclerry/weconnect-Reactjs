@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import 'react-notifications/lib/notifications.css';
 import fectInterceptor from  './actions/interceptor';
 
 

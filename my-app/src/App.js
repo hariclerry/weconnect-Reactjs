@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import 'react-notifications/lib/notifications.css';
 
 import Routes from './components';
 import weconnectStore from './store';
