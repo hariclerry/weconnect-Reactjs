@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import Loader from 'react-loader';
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import NavBar from "./navBar";
+import Footer from "./footer";
 
 import "./static/css/bootstrap.min.css";
+import "./static/css/box-model.css";
 
 const SingleBusiness = ({ business, deleteBusiness }) => (
   <div>
     <NavBar />
     <div className="container">
-      <h4>Hello User</h4>
+      <h4>Business</h4>
       <hr />
 
-      <div className="col-md-8 col-md-offset-2">
+      <div className="col-md-8 col-md-offset-2" className="box">
         <h1>{business.name}</h1>
         <p>
           <b>Category: </b> {business.category}

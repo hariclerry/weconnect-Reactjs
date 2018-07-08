@@ -10,7 +10,7 @@ import { NotificationManager } from "react-notifications";
 
 
 import { jsonStringify } from "../utils/jsonHelper";
-import Signup from "../components/Signup";
+import Signup from "../components/signup";
 import { registerUser } from "../actions/userActions";
 
 

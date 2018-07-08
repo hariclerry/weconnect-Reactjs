@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import { NotificationManager } from "react-notifications";
-import AuthNavbar from "./AuthNavbar";
-import Footer from "./Footer";
+import AuthNavbar from "./authNavbar";
+import Footer from "./footer";
 import "./static/css/bootstrap.min.css";
 import "./static/css/jumbotron.css";
 import "./static/css/styles.css";

@@ -8,7 +8,7 @@ import { NotificationManager } from "react-notifications";
 import { registerBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
 import { jsonStringify } from "../utils/jsonHelper";
-import RegisterBusiness from "../components/RegisterBusiness";
+import RegisterBusiness from "../components/registerBusiness";
 
 
 class AddBusiness extends React.Component {
@@ -42,7 +42,8 @@ class AddBusiness extends React.Component {
   render() {
     return (
       <div>
-       <createBusiness
+        {/* User defined component */}
+       <RegisterBusiness
        createBusiness={this.createBusiness}
        />
       </div>
@@ -50,16 +51,19 @@ class AddBusiness extends React.Component {
   }
 }
 
+// Validate/ensure the right props is used and is required
 RegisterBusiness.protoTypes = {
   email: PropTypes.string.isRequired,
   registerBusiness: PropTypes.func.isRequired
 };
 
+// receive application state from the store and make data avilable to component as props
 const mapStateToProps = state => ({
   email: state.auth.loginData.email,
   business: state.business.createBusinessMessage
 });
 
+// Connect function subscribes the container component to the store, so that it will be alerted when state changes.
 export default withRouter(
   connect(
     mapStateToProps,

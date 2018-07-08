@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 // TO DO:import { NotificationManager } from "react-notifications";
 import { jsonStringify } from "../utils/jsonHelper";
-import AddReview from "../components/AddReview";
+import AddReview from "../components/addReview";
 import { singleBusiness, fetchReview, reviewBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
 
@@ -16,25 +16,22 @@ import { checkIfUserIsLoggedIn } from "../actions/userActions";
  */
 
 class Reviews extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
+
+    //  execute single business function and returns business information 
     const { id } = this.props.match.params;
     this.props.singleBusiness(id);
-  }
 
-  componentWillMount() {
+    //  execute fetch review function
     const businessId = this.props.match.params.id;
     this.props.fetchReview(businessId);
   }
 
   addReview = e => {
-
-    console.log("listennnn");
-    e.preventDefault(); // Prevent link from opening the URL(synthetic event):
+    // Prevent link from opening the URL(synthetic event):
+    e.preventDefault(); 
     let businessCredential = {
       description: e.target.elements.description.value
     };
@@ -50,7 +47,6 @@ class Reviews extends React.Component {
       Array.prototype.reverse.call(reviews);
     }
 
-    console.log("reviews", this.props.reviews);
     return (
       <AddReview
         reviews={this.props.reviews}

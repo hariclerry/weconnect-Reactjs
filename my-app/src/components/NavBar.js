@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logoutUser } from "../actions/userActions";
 
 const NavBar = ({ logoutUser }) => (

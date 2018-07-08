@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 // import { NotificationManager } from 'react-notifications';
 import { loginUser } from "../actions/userActions";
 import { jsonStringify } from "../utils/jsonHelper";
-import Login from "../components/Login";
+import Login from "../components/login";
 
 
 class UserLogin extends React.Component {

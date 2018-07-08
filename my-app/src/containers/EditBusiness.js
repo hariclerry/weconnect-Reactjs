@@ -4,14 +4,26 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 
-// import { NotificationManager } from "react-notifications";
-import EditBusiness from "../components/EditBusiness";
+import { NotificationManager } from "react-notifications";
+import EditBusiness from "../components/editBusiness";
 import { jsonStringify } from "../utils/jsonHelper";
 import { editBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
-// TO DO: import {checkIfUserIsLoggedIn} from '../actions/userActions';
 
 class EditBusinessContainer extends React.Component {
+
+  // componentWillReceiveProps(recieved) {
+  //   if (
+  //     recieved &&
+  //     recieved.business.message === "Business successfully registered"
+  //   ) {
+  //     this.props.history.push("/dashboard");
+  //   } else {
+  //     if (recieved && recieved.business.status === "failure") {
+  //       NotificationManager.error(recieved.business.message, "", 5000);
+  //     }
+  //   }
+  // }
   
   constructor(props) {
     super(props);
@@ -42,6 +54,7 @@ class EditBusinessContainer extends React.Component {
     };
     const businessId = this.props.match.params.id;
     this.props.editBusiness(businessId, jsonStringify(businessCredential));
+    this.props.history.push("/dashboard");
   };
 
   render() {

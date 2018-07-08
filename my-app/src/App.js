@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // import PropTypes from 'prop-types';
 import Routes from './components';
 import weconnectStore from './store';
-import history from './components/History';
+import history from './components/history';
 import jwtDecode from 'jwt-decode';
 import {LOGIN_USER} from './actions/types'
 

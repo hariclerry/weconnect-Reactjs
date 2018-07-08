@@ -2,8 +2,8 @@ import React from "react";
 
 // import { NotificationManager } from 'react-notifications';
 
-import Footer from "./Footer";
-import AuthNavbar from "./AuthNavbar";
+import Footer from "./footer";
+import AuthNavbar from "./authNavbar"
 import "./static/css/fix-footer.css";
 import "./static/css/bootstrap.min.css";
 import "./static/css/stylesform.css";

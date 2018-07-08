@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 
 import { singleBusiness, deleteBusiness } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
-import SingleBusiness from "../components/SingleBusiness";
+import SingleBusiness from "../components/singleBusiness";
 
 class Business extends React.Component {
 
@@ -27,7 +27,7 @@ class Business extends React.Component {
   };
 
   render() {
-    // Deconstructing
+    // Deconstructing an object
     const { business } = this.props;
     return (
       <SingleBusiness

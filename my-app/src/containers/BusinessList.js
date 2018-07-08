@@ -7,7 +7,7 @@ import { NotificationManager } from "react-notifications";
 
 import { fetchBusinesses } from "../actions/businessActions";
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
-import Businesses from "../components/BusinessList";
+import Businesses from "../components/businessList";
 
 class BusinessList extends React.Component {
   componentWillReceiveProps(recieved) {
@@ -24,6 +24,7 @@ class BusinessList extends React.Component {
 
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
+     //  execute fetch business function
     this.props.fetchBusinesses();
   }
 

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // import { NotificationManager } from "react-notifications";
-import SearchBusiness from "../components/SearchBar";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import SearchBusiness from "../components/searchBar";
+import NavBar from "./navBar";
+import Footer from "./footer";
 import "./static/css/bootstrap.min.css";
 
 const Businesses = ({ businesses }) => (
@@ -20,7 +20,7 @@ const Businesses = ({ businesses }) => (
         <div className="container">
           <div style={{ margin: "100px"}}>
             <div>
-              <h4>Hello User, Below are a list of all Registered businesses</h4>
+              <h4>Below are a list of all Registered businesses</h4>
             </div>
             </div>
           <div className="table-responsive">

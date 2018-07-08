@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { checkIfUserIsLoggedIn } from "../actions/userActions";
 import { userBusinesses } from "../actions/businessActions";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/dashboard";
 
 // TO DO: import { NotificationManager } from "react-notifications";
 
@@ -26,7 +26,9 @@ class UserDashboard extends React.Component {
     return (
       <div>
       <Dashboard 
-      businesses={businesses}/>
+      businesses={businesses}
+      username={this.props.username}
+      />
       </div>
     );
   }
@@ -36,11 +38,13 @@ class UserDashboard extends React.Component {
 
 Dashboard.propTypes = {
   email: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
   userBusinesses: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   email: state.auth.loginData.email,
+  username: state.auth.loginData.username,
   business: state.business.userBusinessMessage
 });
 

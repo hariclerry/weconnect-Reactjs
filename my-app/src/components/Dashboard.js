@@ -1,21 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import NavBar from "./navBar";
+import Footer from "./footer";
 
 import "./static/css/bootstrap.min.css";
 import "./static/css/fix-footer.css";
 // TO DO: import { NotificationManager } from "react-notifications";
 
-const Dashboard = ({ businesses }) => (
+const Dashboard = ({ businesses, username }) => (
   
       <div>
         <NavBar />
         <div className="container">
           <h4>
-            Hello User, welcome to your dashboard, Below are a list of your
-            Registered businesses
+            Hello {username}, welcome to your dashboard
           </h4>
           <hr />
           <br />
@@ -56,13 +55,14 @@ const Dashboard = ({ businesses }) => (
                         <td>{business.location}</td>
                         <td>{business.description}</td>
                         <td>
-                          <a
-                            href="/addreview"
-                            className="btn btn-info"
-                            role="button"
-                          >
-                            Review
-                          </a>
+                        <Link
+                          to={`/addreview/${business.id}`}
+                          className="btn btn-info"
+                          role="button"
+                          style={{ marginRight: "20px" }}
+                        >
+                          Review
+                        </Link>
                         </td>
                       </tr>
                     ))

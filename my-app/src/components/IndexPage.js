@@ -1,7 +1,7 @@
 import React from "react";
 
-import AuthNavbar from "./AuthNavbar";
-import Footer from "./Footer";
+import AuthNavbar from "./authNavbar";
+import Footer from "./footer";
 
 import "./static/css/bootstrap.min.css";
 import "./static/css/jumbotron.css";
