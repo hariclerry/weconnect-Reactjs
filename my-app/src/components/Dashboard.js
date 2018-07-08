@@ -18,8 +18,6 @@ const Dashboard = ({ businesses, username }) => (
           </h4>
           <hr />
           <br />
-          <br />
-          <br />
           <div className="fixed-footer">
             <div className="table-responsive">
               <table className="table table-striped">
