@@ -4,9 +4,9 @@ import React from "react";
 
 import Footer from "./footer";
 import AuthNavbar from "./authNavbar"
-import "./static/css/fix-footer.css";
-import "./static/css/bootstrap.min.css";
-import "./static/css/stylesform.css";
+import "../static/css/fix-footer.css";
+import "../static/css/bootstrap.min.css";
+import "../static/css/stylesform.css";
 
 const Login = ({ Login }) => (
   <div>

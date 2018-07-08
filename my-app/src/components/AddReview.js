@@ -4,9 +4,9 @@ import React from "react";
 import Footer from "./footer";
 import NavBar from "./navBar";
 
-import "./static/css/bootstrap.min.css";
-import "./static/css/box-model.css";
-import "./static/css/fix-footer.css";
+import "../static/css/bootstrap.min.css";
+import "../static/css/box-model.css";
+import "../static/css/fix-footer.css";
 
 const ReviewBusiness = ({ reviews, addReview, businessName }) => (
   <div>

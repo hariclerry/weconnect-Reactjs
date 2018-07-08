@@ -3,9 +3,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
-// import 'react-notifications/lib/notifications.css';
 // import { NotificationManager } from 'react-notifications';
+
 import { loginUser } from "../actions/userActions";
 import { jsonStringify } from "../utils/jsonHelper";
 import Login from "../components/login";

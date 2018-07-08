@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SearchBusiness from "../components/searchBar";
 import NavBar from "./navBar";
 import Footer from "./footer";
-import "./static/css/bootstrap.min.css";
+import "../static/css/bootstrap.min.css";
 
 const Businesses = ({ businesses }) => (
  

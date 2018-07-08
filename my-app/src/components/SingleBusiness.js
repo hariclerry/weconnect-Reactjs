@@ -1,11 +1,11 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
-// import Loader from 'react-loader';
+
 import NavBar from "./navBar";
 import Footer from "./footer";
-
-import "./static/css/bootstrap.min.css";
-import "./static/css/box-model.css";
+import "../static/css/bootstrap.min.css";
+import "../static/css/box-model.css";
 
 const SingleBusiness = ({ business, deleteBusiness }) => (
   <div>

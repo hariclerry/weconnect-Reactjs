@@ -2,7 +2,7 @@ import React from "react";
 
 import Footer from "./footer";
 import NavBar from "./navBar";
-import "./static/css/bootstrap.min.css";
+import "../static/css/bootstrap.min.css";
 
 const RegisterBusiness = ({ createBusiness }) => (
   

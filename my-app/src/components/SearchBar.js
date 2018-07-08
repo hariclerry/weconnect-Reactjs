@@ -1,17 +1,6 @@
 import React from "react";
-import "./static/css/bootstrap.min.css";
 
-// import PropTypes from "prop-types";
-// import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
-// import { Link } from "react-router-dom";
-
-// import { NotificationManager } from "react-notifications";
-// import "./static/css/bootstrap.min.css";
-// import { fetchBusinesses } from "../actions/businessActions";
-// import { checkIfUserIsLoggedIn } from "../actions/userActions";
-// import NavBar from "./NavBar";
-// import Footer from "./Footer";
+import "../static/css/bootstrap.min.css";
 
 const SearchBusiness = () => (
   <div>

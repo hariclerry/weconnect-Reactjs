@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
-
 import { NotificationManager } from "react-notifications";
+
 import EditBusiness from "../components/editBusiness";
 import { jsonStringify } from "../utils/jsonHelper";
 import { editBusiness } from "../actions/businessActions";

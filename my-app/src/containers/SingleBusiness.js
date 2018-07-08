@@ -3,7 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
 // TO DO:import { NotificationManager } from "react-notifications";
 
 import { singleBusiness, deleteBusiness } from "../actions/businessActions";

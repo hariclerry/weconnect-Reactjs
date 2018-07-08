@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import NavBar from "./navBar";
 import Footer from "./footer";
 
-import "./static/css/bootstrap.min.css";
-import "./static/css/fix-footer.css";
+import "../static/css/bootstrap.min.css";
+import "../static/css/fix-footer.css";
 // TO DO: import { NotificationManager } from "react-notifications";
 
 const Dashboard = ({ businesses, username }) => (

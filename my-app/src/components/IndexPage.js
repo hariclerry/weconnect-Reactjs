@@ -3,8 +3,8 @@ import React from "react";
 import AuthNavbar from "./authNavbar";
 import Footer from "./footer";
 
-import "./static/css/bootstrap.min.css";
-import "./static/css/jumbotron.css";
+import "../static/css/bootstrap.min.css";
+import "../static/css/jumbotron.css";
 
 const IndexPage = () => (
       <div>
@@ -33,7 +33,7 @@ const IndexPage = () => (
           <div className="row">
             <div className="col-sm-6 col-md-4">
               <div className="thumbnail">
-                <img src={require("./static/images/reg.jpeg")} alt="image1" />
+                <img src={require("../static/images/reg.jpeg")} alt="image1" />
 
                 <div className="caption">
                   <h3>Register Business</h3>
@@ -48,7 +48,7 @@ const IndexPage = () => (
             <div className="col-sm-6 col-md-4">
               <div className="thumbnail">
                 <img
-                  src={require("./static/images/innovation.jpeg")}
+                  src={require("../static/images/innovation.jpeg")}
                   alt="image2"
                 />
                 <div className="caption">
@@ -64,7 +64,7 @@ const IndexPage = () => (
             <div className="col-sm-6 col-md-4">
               <div className="thumbnail">
                 <img
-                  src={require("./static/images/business.jpeg")}
+                  src={require("../static/images/business.jpeg")}
                   alt="image3"
                 />
 

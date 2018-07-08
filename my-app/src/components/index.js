@@ -1,6 +1,8 @@
 import React from "react";
+
 import { Route, withRouter } from "react-router-dom";
 import { NotificationContainer } from "react-notifications";
+
 import Index from "./indexPage";
 import Signup from "../containers/signup";
 import Login from "../containers/login";
@@ -10,8 +12,7 @@ import BusinessList from "../containers/businessList";
 import Business from "../containers/singleBusiness";
 import EditBusinessContainer from "../containers/editBusiness";
 import Reviews from "../containers/reviews";
-// import RegisterBusiness from "./RegisterBusiness";
-// import ReviewBusiness from './AddReview';
+
 
 class Routes extends React.Component {
   render() {

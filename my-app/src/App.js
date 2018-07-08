@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-// import PropTypes from 'prop-types';
+
 import Routes from './components';
 import weconnectStore from './store';
-import history from './components/history';
+import history from './utils/history';
 import jwtDecode from 'jwt-decode';
 import {LOGIN_USER} from './actions/types'
 
-// decode token and ensures user is dispatched to the store
+// decode token and ensure user is dispatched to the store
 const token = localStorage.getItem("access_token");
 if(token){
  const user = jwtDecode(token)
@@ -36,9 +37,6 @@ class App extends Component {
   }
 }
 
-// // App.propTypes = {
-// //   store:PropTypes.object.isRequired
-// }
 export default App;
 
 

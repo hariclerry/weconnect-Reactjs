@@ -1,5 +1,6 @@
 import React from "react";
-import "./static/css/fix-footer.css";
+
+import "../static/css/fix-footer.css";
 
 const Footer = () => (
   <div>
