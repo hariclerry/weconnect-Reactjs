@@ -1,9 +1,9 @@
-import { REGISTER_USER, LOGIN_USER} from '../actions/types';
+import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD} from '../actions/types';
 
 const initialState = {
     signupMessage: {},
-    loginData: {}
-    // resetPasswordData: {}
+    loginData: {},
+    resetPasswordData: {}
 };
 
 export default (state = initialState, action)=>{
@@ -12,6 +12,8 @@ export default (state = initialState, action)=>{
             return {...state, signupMessage:action.message}
         case LOGIN_USER:
             return {...state, loginData:action.user}
+        case RESET_PASSWORD:
+            return {...state, resetpasswordData:action.user}
         default:
             return state;
     }

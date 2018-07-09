@@ -1,9 +1,9 @@
-import { REGISTER_USER, LOGIN_USER } from './types';
+import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD } from './types';
+import {notify} from 'react-notify-toast';
 import jwtDecode from 'jwt-decode'
 // import history from '../components/history';
 
 export const registerUser = credentials => dispatch => {
-    console.log("registering...")
     let options = {
         method: 'POST',
         body: credentials,
@@ -17,12 +17,12 @@ export const registerUser = credentials => dispatch => {
         {type: REGISTER_USER,
         message: data}
     );
+    notify.show("Successfully registered, please log in", "success");
     // history.push('/login')
     ;})
 }
 
 export const loginUser = credentials => dispatch => {
-    console.log("loginnng...")
     let options = {
         method: 'POST',
         body: credentials,
@@ -35,17 +35,37 @@ export const loginUser = credentials => dispatch => {
     .then(data => {
         //decode the token to know which user is logging in.
         const user = jwtDecode(data.access_token);
-        localStorage.setItem("access_token",data.access_token);
-        console.log(data)
+        localStorage.setItem("access_token",data.access_token); 
         localStorage.setItem("user_id",user.sub);
        return dispatch( { type: LOGIN_USER,
         user: {   email: user.email,
                 id: user.sub,
                 username: user.username,
                 access_token: data.access_token }
-       });
+       }
+    );
     });
     // history.push('/registerbusiness') 
+}
+
+export const passwordReset = credentials => dispatch => {
+    let options = {
+        method: 'POST',
+        body: credentials,
+        headers: {
+            'Content-Type':'application/json',
+            access_token: localStorage.getItem("access_token")
+            }
+    };
+    fetch(`http://127.0.0.1:5000/v1/api/auth/reset_password`, options)
+    .then(response => response.json())
+    .then(data => {dispatch(
+        {type: RESET_PASSWORD,
+        message: data}
+    );
+    // notify.show("Successfully registered, please log in", "success");
+    // history.push('/login')
+    ;})
 }
 
 export const logoutUser  = () => dispatch => {
