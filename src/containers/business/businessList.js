@@ -78,7 +78,7 @@ class BusinessList extends React.Component {
   }
 }
 
-BusinessList.protoTypes = {
+BusinessList.propTypes = {
   email: PropTypes.string.isRequired,
   fetchBusinesses: PropTypes.func.isRequired,
   businesses: PropTypes.object
