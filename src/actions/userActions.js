@@ -11,13 +11,13 @@ export const registerUser = credentials => dispatch => {
             'Content-Type':'application/json'
             }
     };
-    fetch(`http://127.0.0.1:5000/v1/api/auth/register`, options)
+    return fetch(`http://127.0.0.1:5000/v1/api/auth/register`, options)
     .then(response => response.json())
     .then(data => {dispatch(
         {type: REGISTER_USER,
         message: data}
     );
-    notify.show("Successfully registered, please log in", "success");
+    // notify.show("Successfully registered, please log in", "success");
     // history.push('/login')
     ;})
 }
@@ -44,6 +44,9 @@ export const loginUser = credentials => dispatch => {
                 access_token: data.access_token }
        }
     );
+    }).catch(e=>{
+        // do something with the error
+        console.log("An error occured")
     });
     // history.push('/registerbusiness') 
 }
@@ -57,7 +60,7 @@ export const passwordReset = credentials => dispatch => {
             access_token: localStorage.getItem("access_token")
             }
     };
-    fetch(`http://127.0.0.1:5000/v1/api/auth/reset_password`, options)
+    return fetch(`http://127.0.0.1:5000/v1/api/auth/reset_password`, options)
     .then(response => response.json())
     .then(data => {dispatch(
         {type: RESET_PASSWORD,

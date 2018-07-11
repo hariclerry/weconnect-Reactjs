@@ -3,7 +3,7 @@ import {shallow, mount} from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import weconnectStore from "store";
-import { BusinessList} from "../../containers/business/businessList";
+import { BusinessList} from "containers/business/businessList";
 
 const loginUserMock = { access_token: jwt.sign({ email: "clerry@gmail.com", password: "this199" }, "hard to guess string")}
 
