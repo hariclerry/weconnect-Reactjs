@@ -11,19 +11,7 @@ import { checkIfUserIsLoggedIn } from "actions/userActions";
 
 class EditBusinessContainer extends React.Component {
 
-  // componentWillReceiveProps(recieved) {
-  //   if (
-  //     recieved &&
-  //     recieved.business.message === "Business successfully registered"
-  //   ) {
-  //     this.props.history.push("/dashboard");
-  //   } else {
-  //     if (recieved && recieved.business.status === "failure") {
-  //       NotificationManager.error(recieved.business.message, "", 5000);
-  //     }
-  //   }
-  // }
-  
+
   constructor(props) {
     super(props);
     this.state = {
