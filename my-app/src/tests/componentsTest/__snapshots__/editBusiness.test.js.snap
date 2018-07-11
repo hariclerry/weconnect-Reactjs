@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Business component should match snapshot 1`] = `<Route />`;
-
-exports[`EBusiness component should match snapshot 1`] = `<Route />`;
-
-exports[`EditBusiness component should match snapshot 1`] = `<Route />`;
-
-exports[`RegisterBusiness component should match snapshot 1`] = `<Route />`;

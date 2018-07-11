@@ -2,7 +2,7 @@ import React from "react";
 import {shallow, mount} from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import weconnectStore from "store";
-import UserSignup from "containers/user/signUp";
+import UserSignup from "containers/user/signup";
 
 
 describe('UserSignup component',() =>{
