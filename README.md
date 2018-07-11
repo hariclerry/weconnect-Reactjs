@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hariclerry/weconnect-Reactjs.svg?branch=master)](https://travis-ci.org/hariclerry/weconnect-Reactjs)
+
 # We Connect APP
 
 Weconnect Business app (With ReactJS)
