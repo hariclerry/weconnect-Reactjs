@@ -10,7 +10,7 @@ import Businesses from "components/business/businessList";
 import Pagination from "components/business/pagination";
 
 
-class BusinessList extends React.Component {
+export class BusinessList extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,17 +21,6 @@ class BusinessList extends React.Component {
       searching: false
     };
 }
-  // componentWillReceiveProps(recieved) {
-  //   if (recieved.business) {
-  //     if (recieved.business.message === "Business successfully registered") {
-  //       this.props.history.push("/businesslist");
-  //     } else {
-  //       if (recieved && recieved.business.status === "failure") {
-  //         NotificationManager.error(recieved.business.message, "", 5000);
-  //       }
-  //     }
-  //   }
-  // }
 
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
