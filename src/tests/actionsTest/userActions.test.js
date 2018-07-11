@@ -1,12 +1,10 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import decode from 'jwt-decode';
 import jwt from "jsonwebtoken";
 import {url} from "actions/baseUrl"
 import * as actions from "actions/userActions";
-import fetchMock from 'fetch-mock';
-import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD } from 'actions/types';
-import mockLocalStorage from '../localStorage'
+import fetchMock from "fetch-mock";
+import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD } from "actions/types";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
