@@ -46,7 +46,7 @@ export const loginUser = credentials => dispatch => {
     );
     }).catch(e=>{
         // do something with the error
-        console.log("An error occured")
+        // console.log("An error occured")
     });
     // history.push('/registerbusiness') 
 }

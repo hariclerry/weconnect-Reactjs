@@ -61,62 +61,19 @@ describe("user actions", () => {
         expect(triggeredActions).toEqual(expectedActions);
     })
 
-    // it('does not create LOGIN_USER action if no user data is provided', () => {
-    //     fetchMock.postOnce(`${url}v1/api/auth/login`,
-    //     { body: {}, headers: { 'Content-Type': 'application/json' }})
-    //     const expectedActions = [
-    //         { 
-    //             type: LOGIN_USER,
-    //             user: {} 
-    //         }
-    //         ];
-    //     return store.dispatch(actions.loginUser());
-    //     expect(calledActions).toEqual(expectedActions);
-    // })
-
-//     it('creates LOGOUT_USER action after successfully logging out a user', () => {
-//         sessionStorage.setItem("access_token", loginUserMock.token);
-//         fetchMock.postOnce('/api/v2/auth/logout',
-//         { headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem("access_token"), 
-//                                       'Content-Type': 'application/json' }})
-//         const expectedActions = [
-//             { 
-//                 type: LOGOUT_USER,
-//                 payload: loginUserMock.token
-//             }
-//             ];
-//         return store.dispatch(actions.logOut());
-//         expect(calledActions).toEqual(expectedActions);
-//     })
-
-//     it('creates RESET_PASSWORD action after a user successfully resets their  password', () => {
-//         sessionStorage.setItem("access_token", loginUserMock.token);
-//         fetchMock.postOnce('/api/v2/auth/reset-password',
-//         { body: resetPasswordData, headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem("access_token"), 
-//                                       'Content-Type': 'application/json' }})
-//         const expectedActions = [
-//             { 
-//                 type: RESET_PASSWORD,
-//                 payload: resetPasswordMock
-//             }
-//             ];
-//         return store.dispatch(actions.resetPassword(resetPasswordData))
-//         expect(calledActions).toEqual(expectedActions);
-//     })
-
-//     it('does not create RESET_PASSWORD action if no user data is provided', () => {
-//         sessionStorage.setItem("access_token", loginUserMock.token);
-//         fetchMock.postOnce('/api/v2/auth/reset-password',
-//         { body: {}, headers: { 'Authorization': 'Bearer ' + sessionStorage.getItem("access_token"), 
-//                                       'Content-Type': 'application/json' }})
-//         const expectedActions = [
-//             { 
-//                 type: RESET_PASSWORD,
-//                 payload: {}
-//             }
-//             ];
-//         return store.dispatch(actions.resetPassword())
-//         expect(calledActions).toEqual(expectedActions);
-//     })
+    it('creates RESET_PASSWORD action after a user successfully resets their  password', () => {
+      localStorage.setItem("token", loginUserMock.access_token);
+        fetchMock.postOnce(`${url}v1/api/auth/reset_password`,
+        { body: resetPasswordData, headers: {  access_token: localStorage.getItem("access_token"), 
+                                      'Content-Type': 'application/json' }})
+        const expectedActions = [
+            { 
+                type: RESET_PASSWORD,
+                message: resetPasswordMock
+            }
+            ];
+        return store.dispatch(actions.passwordReset(resetPasswordData))
+        expect(triggeredActions).toEqual(expectedActions);
+    })
 
 })
