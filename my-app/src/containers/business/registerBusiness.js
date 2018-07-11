@@ -49,7 +49,7 @@ RegisterBusiness.protoTypes = {
 // receive application state from the store and make data avilable to component as props
 const mapStateToProps = state => ({
   email: state.auth.loginData.email,
-  business: state.business.createBusinessMessage
+  business: state.business.registerBusinessMessage
 });
 
 // Connect function subscribes the container component to the store, so that it will be alerted when state changes.

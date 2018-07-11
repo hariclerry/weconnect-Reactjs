@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import jwtDecode from "jwt-decode";
 import jwt from "jsonwebtoken";
-import mocklocalStorage from "tests/componentsTest/localStorage";
+import mocklocalStorage from "tests/localStorage";
 import App from "./App";
 
 const loginUserMock = { access_token: jwt.sign({ email: "clerry@gmail.com", password: "this199" }, "hard to guess string")}

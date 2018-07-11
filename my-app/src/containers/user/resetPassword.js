@@ -52,7 +52,7 @@ passwordReset.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userPasswordReset: state.auth.resetpasswordData,
+  userPasswordReset: state.auth.resetPasswordData,
   email: state.auth.loginData.email,
 });
 

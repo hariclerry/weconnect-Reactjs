@@ -13,7 +13,7 @@ export default (state = initialState, action)=>{
         case LOGIN_USER:
             return {...state, loginData:action.user}
         case RESET_PASSWORD:
-            return {...state, resetpasswordData:action.user}
+            return {...state, resetPasswordData:action.user}
         default:
             return state;
     }
