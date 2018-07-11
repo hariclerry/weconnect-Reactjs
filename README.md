@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/hariclerry/weconnect-Reactjs.svg?branch=master)](https://travis-ci.org/hariclerry/weconnect-Reactjs)
 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/79ef56c6b373e7fdc189/test_coverage)](https://codeclimate.com/github/hariclerry/weconnect-Reactjs/test_coverage)
 # We Connect APP
 
 Weconnect Business app (With ReactJS)
