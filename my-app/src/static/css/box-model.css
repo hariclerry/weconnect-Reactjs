@@ -1,0 +1,13 @@
+.box {
+  background-color:  #e6e6e6;
+  width: 500px;
+  padding: 25px;
+  margin: 40px 300px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3em;
+}
+
+h1 {
+  color: green;
+  text-transform: capitalize;
+}
