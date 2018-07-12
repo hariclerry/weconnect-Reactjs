@@ -3,14 +3,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import {notify} from "react-notify-toast";
+import { notify } from "react-notify-toast";
 
 import { singleBusiness, deleteBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 import SingleBusiness from "components/business/singleBusiness";
 
-class Business extends React.Component {
+/**
+ * Single business Container Component for displaying information of a single business.
+ *
+ */
 
+class Business extends React.Component {
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
     const { id } = this.props.match.params;
@@ -27,7 +31,7 @@ class Business extends React.Component {
   };
 
   render() {
-    // Deconstructing an object
+    // Deconstructing an props/object
     const { business } = this.props;
     return (
       <SingleBusiness
@@ -37,7 +41,7 @@ class Business extends React.Component {
     );
   }
 }
-
+// Validate props
 SingleBusiness.protoTypes = {
   email: PropTypes.string.isRequired,
   singleBusiness: PropTypes.func.isRequired,

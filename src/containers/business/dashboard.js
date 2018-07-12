@@ -1,37 +1,36 @@
 import React from "react";
+
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import  {notify} from 'react-notify-toast';
 
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 import { userBusinesses } from "actions/businessActions";
 import Dashboard from "components/business/dashboard";
 
-// TO DO: import { NotificationManager } from "react-notifications";
+/**
+ * User dashboard Container Component for displaying list of businesses belonging to the logged in user.
+ *
+ */
 
 export class UserDashboard extends React.Component {
   componentDidMount() {
     this.props.userBusinesses(localStorage.getItem("user_id"));
-    // notify.show("Successfully logged in", "success");
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
   }
 
   render() {
-    // Display all businesses from props into a dict
+    // Display all businesses from props as an array
     const businesses = Object.values({ ...this.props.business.business_data });
 
-    // sorts/arranges business from recently added to previous
+    // sorts/arranges business from recently added to previously added
     if (businesses) {
       Array.prototype.reverse.call(businesses);
     }
 
     return (
       <div>
-      <Dashboard 
-      businesses={businesses}
-      username={this.props.username}
-      />
+        <Dashboard businesses={businesses} username={this.props.username} />
       </div>
     );
   }
@@ -51,7 +50,9 @@ const mapStateToProps = state => ({
   business: state.business.userBusinessMessage
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  { checkIfUserIsLoggedIn, userBusinesses }
-)(UserDashboard));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { checkIfUserIsLoggedIn, userBusinesses }
+  )(UserDashboard)
+);

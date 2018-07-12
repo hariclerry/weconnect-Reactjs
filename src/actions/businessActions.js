@@ -1,4 +1,4 @@
-import {url} from "actions/baseUrl"
+import { url } from "actions/baseUrl";
 import {
   REGISTER_BUSINESS,
   FETCH_BUSINESSES,
@@ -10,7 +10,6 @@ import {
   FETCH_BUSINESS_REVIEWS,
   SEARCH_BUSINESSES
 } from "./types";
-import { notify } from "react-notify-toast";
 
 export const registerBusiness = credentials => dispatch => {
   let options = {
@@ -52,9 +51,7 @@ export const fetchBusinesses = (page = "") => dispatch => {
         });
       });
   } else {
-    return fetch(`${url}v1/api/businesses?page=` + page,
-      options
-    )
+    return fetch(`${url}v1/api/businesses?page=` + page, options)
       .then(response => response.json())
       .then(data => {
         dispatch({
@@ -95,9 +92,7 @@ export const userBusinesses = userid => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`${url}v1/api/user/${userid}/businesses`,
-    options
-  )
+  return fetch(`${url}v1/api/user/${userid}/businesses`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
@@ -179,7 +174,6 @@ export const reviewBusiness = (id, credentials) => dispatch => {
         type: REVIEW_BUSINESS,
         message: data
       });
-
     });
 };
 

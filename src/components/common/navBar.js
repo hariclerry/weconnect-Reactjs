@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 
 import { logoutUser } from "actions/userActions";
 
-
 const NavBar = ({ logoutUser }) => (
   <nav className="navbar navbar-inverse">
     <div className="container-fluid">
@@ -55,7 +54,9 @@ NavBar.propTypes = {
   logoutUser: PropTypes.func.isRequired
 };
 
-export default withRouter(connect(
-  null,
-  { logoutUser }
-)(NavBar));
+export default withRouter(
+  connect(
+    null,
+    { logoutUser }
+  )(NavBar)
+);
