@@ -16,6 +16,13 @@ describe('RegisterBusiness component',() => {
       const wrapper = shallow(<RegisterBusiness />)
       expect(wrapper).toMatchSnapshot();
   })
+
+
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<RegisterBusiness/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
+  })
 })
 
 
@@ -44,6 +51,11 @@ describe('EditBusiness component',() => {
       const wrapper = shallow(<EditBusiness />)
       expect(wrapper).toMatchSnapshot();
   })
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<EditBusiness/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
+  })
 })
 
 describe('Pagination component',() => {
@@ -60,11 +72,18 @@ describe('SearchBusiness component',() => {
       const wrapper = shallow(<SearchBusiness />)
       expect(wrapper).toMatchSnapshot();
   })
+
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<SearchBusiness/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
+  })
+  
 })
 
 describe('SingleBusiness component',() => {
   const props = {
-    business:[]
+    business:{name:"hari"}
     }
 
   it('should match snapshot',() =>{
@@ -72,4 +91,10 @@ describe('SingleBusiness component',() => {
       expect(wrapper).toMatchSnapshot();
   })
 })
+
+
+
+  
+
+
 

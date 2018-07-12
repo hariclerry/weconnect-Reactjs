@@ -17,6 +17,11 @@ describe('UserRegistration component',() => {
       const wrapper = shallow(<UserRegistration />)
       expect(wrapper).toMatchSnapshot();
   })
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<UserRegistration/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
+  })
 })
 
 
@@ -26,6 +31,11 @@ describe('Login component',() => {
       const wrapper = shallow(<Login />)
       expect(wrapper).toMatchSnapshot();
   })
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<Login/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
+  })
 })
 
 describe('ResetUserPassword component',() => {
@@ -33,6 +43,11 @@ describe('ResetUserPassword component',() => {
   it('should match snapshot',() =>{
       const wrapper = shallow(<ResetUserPassword />)
       expect(wrapper).toMatchSnapshot();
+  })
+  it('should match snapshot',() =>{
+    const wrapper = shallow(<ResetUserPassword/>)
+    const form = wrapper.find("form")
+    expect(form).toHaveLength(1);
   })
 })
 
@@ -58,5 +73,6 @@ describe('IndexPage component',() => {
       const wrapper = shallow(<IndexPage />)
       expect(wrapper).toMatchSnapshot();
   })
+
 })
 

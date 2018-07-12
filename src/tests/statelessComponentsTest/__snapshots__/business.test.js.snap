@@ -480,7 +480,9 @@ exports[`SingleBusiness component should match snapshot 1`] = `
     <div
       className="box"
     >
-      <h1 />
+      <h1>
+        hari
+      </h1>
       <p>
         <b>
           Category: 

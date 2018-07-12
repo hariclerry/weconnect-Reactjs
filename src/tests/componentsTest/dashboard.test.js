@@ -10,18 +10,18 @@ const loginUserMock = { access_token: jwt.sign({ email: "clerry@gmail.com", pass
 describe('UserDashboard component',() =>{
   beforeEach(() => {
     localStorage.setItem("token", loginUserMock.access_token);
+
 });
+const wrapper = shallow(<UserDashboard email="clerry@gmail.com" businesses="Andela" username="hari"/>)
 it('should match snapshot',() =>{
-  const wrapper = shallow(<UserDashboard/>)
   expect(wrapper).toMatchSnapshot();
 })
 
-it("should render the RegisterBusiness component", () => {
+it("should render the UserDashboard component", () => {
   const mountComponent = shallow(<MemoryRouter><UserDashboard store = {weconnectStore}/></MemoryRouter>)
   expect(mountComponent.length).toBe(1);
   
 });
 
-}
 
-)
+})
