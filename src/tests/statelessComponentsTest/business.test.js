@@ -1,7 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme";
 import RegisterBusiness from "components/business/registerBusiness";
-// import Businesses from "components/business/businessList";
 import ReviewBusiness from "components/business/addReview";
 import Dashboard from "components/business/dashboard";
 import EditBusiness from "components/business/editBusiness";
@@ -18,17 +17,6 @@ describe('RegisterBusiness component',() => {
       expect(wrapper).toMatchSnapshot();
   })
 })
-
-// describe('Businesses component',() => {
-//   const props = {
-//     map: []
-//     }
-
-//   it('should match snapshot',() =>{
-//       const wrapper = shallow(<Businesses {...props}/>)
-//       expect(wrapper).toMatchSnapshot();
-//   })
-// })
 
 
 describe('ReviewBusiness component',() => {
