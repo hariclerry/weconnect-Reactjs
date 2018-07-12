@@ -7,7 +7,7 @@ import "static/css/bootstrap.min.css";
 import "static/css/box-model.css";
 import "static/css/fix-footer.css";
 
-const ReviewBusiness = ({ reviews, addReview, businessName }) => (
+export const ReviewBusiness = ({ reviews, addReview, businessName }) => (
   <div>
     <NavBar />
     <div className="container">

@@ -22,6 +22,17 @@ it("should render the RegisterBusiness component", () => {
   
 });
 
-}
+// it('checks that the create business form submits', ()=>{
+//   const RegisterBusinessComponent = mount(<MemoryRouter><RegisterBusiness store = {weconnectStore}/></MemoryRouter>)
+//   let name = RegisterBusinessComponent.find('input[name="name"]')
+//   name.simulate('change', {target:{value: 'ANDELA'}});
+//   let category = RegisterBusinessComponent.find('input[name="category"]')
+//   category.simulate('change', {target:{value: 'TECHNOLOGY'}});
+//   let location = RegisterBusinessComponent.find('input[name="businessName"]')
+//   location.simulate('change', {target:{value: 'BUKOTO'}});
+//   let description = RegisterBusinessComponent.find('textarea[name="description"]')
+//   description.simulate('change', {target:{value: 'This is Andela'}});
+//   RegisterBusinessComponent.find('form.registerBusinessForm').simulate('submit');
+// });
 
-)
+})

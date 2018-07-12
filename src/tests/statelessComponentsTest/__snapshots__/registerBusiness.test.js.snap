@@ -1,0 +1,544 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component should match snapshot 1`] = `
+<div>
+  <_class
+    options={Object {}}
+  />
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h4>
+      Hello 
+      , welcome to your dashboard
+    </h4>
+    <Link
+      className="btn btn-success"
+      replace={false}
+      role="button"
+      style={
+        Object {
+          "marginRight": "20px",
+        }
+      }
+      to="/resetpassword/"
+    >
+      Reset Password
+    </Link>
+    <hr />
+    <br />
+    <div
+      className="fixed-footer"
+    >
+      <div
+        className="table-responsive"
+      >
+        <table
+          className="table table-striped"
+        >
+          <thead>
+            <td>
+              <b>
+                Name
+              </b>
+            </td>
+            <td>
+              <b>
+                Category
+              </b>
+            </td>
+            <td>
+              <b>
+                Location
+              </b>
+            </td>
+            <td>
+              <b>
+                Description
+              </b>
+            </td>
+            <td>
+              <b>
+                Review
+              </b>
+            </td>
+          </thead>
+          <tbody>
+            <div>
+               No Businesses found 
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`EditBusiness component should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h3>
+       You can now update your Business
+    </h3>
+  </div>
+  <hr />
+  <div
+    style={
+      Object {
+        "margin": "100px",
+      }
+    }
+  >
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label requiredField"
+          for="title"
+        >
+          Business Name:
+        </label>
+        <input
+          className="form-control"
+          id="title"
+          name="name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          for="category"
+        >
+          Business Category:
+        </label>
+        <input
+          className="form-control"
+          id="category"
+          name="category"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          for="location"
+        >
+          Business Location:
+        </label>
+        <input
+          className="form-control"
+          id="location"
+          name="location"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          for="description"
+        >
+          Business Description:
+        </label>
+        <textarea
+          className="form-control"
+          cols="40"
+          id="description"
+          name="description"
+          required={true}
+          rows="10"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <button
+          className="btn btn-primary "
+          name="submit"
+          type="submit"
+        >
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Pagination component should match snapshot 1`] = `
+<nav
+  aria-label="Page navigation example"
+  style={
+    Object {
+      "margin": "0 500px",
+    }
+  }
+>
+  <ul
+    className="pagination justify-content-center"
+  >
+    <li
+      className="page-item"
+      key="prev"
+    >
+      <button
+        className="page-link"
+        href=""
+        name="prevPage"
+        onClick={[Function]}
+      >
+        prev
+      </button>
+    </li>
+    <li
+      className="page-item"
+      key="next"
+    >
+      <button
+        className="page-link"
+        href=""
+        name="nextPage"
+        onClick={[Function]}
+      >
+        next
+      </button>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`RegisterBusiness component should match snapshot 1`] = `
+<div>
+  <_class
+    options={Object {}}
+  />
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h3>
+       You can now Register your Business
+    </h3>
+  </div>
+  <hr />
+  <div
+    style={
+      Object {
+        "margin": "100px",
+      }
+    }
+  >
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label requiredField"
+          htmlFor="title"
+        >
+          Business Name:
+        </label>
+        <input
+          className="form-control"
+          id="title"
+          name="name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          htmlFor="category"
+        >
+          Business Category:
+        </label>
+        <input
+          className="form-control"
+          id="category"
+          name="category"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          htmlFor="location"
+        >
+          Business Location:
+        </label>
+        <input
+          className="form-control"
+          id="location"
+          name="location"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          htmlFor="description"
+        >
+          Business Description:
+        </label>
+        <textarea
+          className="form-control"
+          cols="40"
+          id="description"
+          name="description"
+          required={true}
+          rows="10"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <button
+          className="btn btn-primary "
+          name="submit"
+          type="submit"
+        >
+          Create
+        </button>
+      </div>
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`ReviewBusiness component should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <div
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <div
+        className="box"
+      >
+        <h1 />
+        <p>
+          <b>
+            Category: 
+          </b>
+           
+        </p>
+        <p>
+          <b>
+            Location: 
+          </b>
+        </p>
+        <p>
+          <b>
+            Description: 
+          </b>
+        </p>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "50px 150px",
+      }
+    }
+  >
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          htmlFor="description"
+        >
+          Say Something about this Business:
+        </label>
+        <textarea
+          className="form-control"
+          cols="2"
+          id="description"
+          name="description"
+          required={true}
+          rows="2"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <button
+          className="btn btn-primary "
+          name="submit"
+          type="submit"
+        >
+          Add Review
+        </button>
+      </div>
+    </form>
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "50px 150px",
+        "width": "auto",
+      }
+    }
+  >
+    <h3>
+      Reviews
+    </h3>
+    <div>
+       No Reviews found 
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`SearchBusiness component should match snapshot 1`] = `
+<div>
+  <form
+    method="POST"
+    onSubmit={[Function]}
+  >
+    <div>
+      <div
+        className="col-md-8 col-md-offset-2 businesssearch"
+      >
+        <div
+          className="input-group"
+        >
+          <input
+            className="form-control"
+            name="name"
+            placeholder="Search business"
+            type="text"
+          />
+          <span
+            className="input-group-btn"
+          >
+            <button
+              className="btn btn-info"
+              id="search"
+              type="submit"
+            >
+              <i
+                className="fa fa-search fa-fw"
+              />
+               Search
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`SingleBusiness component should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h4>
+      Business
+    </h4>
+    <hr />
+    <div
+      className="box"
+    >
+      <h1 />
+      <p>
+        <b>
+          Category: 
+        </b>
+         
+      </p>
+      <p>
+        <b>
+          Location: 
+        </b>
+      </p>
+      <p>
+        <b>
+          Description: 
+        </b>
+      </p>
+      <Link
+        className="btn btn-success"
+        replace={false}
+        role="button"
+        style={
+          Object {
+            "marginRight": "20px",
+          }
+        }
+        to="/addreview/undefined"
+      >
+        Review
+      </Link>
+      <Link
+        className="btn btn-info"
+        replace={false}
+        role="button"
+        style={
+          Object {
+            "marginRight": "20px",
+          }
+        }
+        to="/editbusiness/undefined"
+      >
+        Edit
+      </Link>
+      <button
+        className="btn btn-danger"
+        onClick={[Function]}
+        role="button"
+        style={
+          Object {
+            "margin": "1%",
+          }
+        }
+      >
+         
+        Delete
+         
+      </button>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
