@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component should match snapshot 1`] = `
+<div>
+  <_class
+    options={Object {}}
+  />
+  <AuthNav />
+  <div
+    className="container"
+  >
+    <h3>
+       Please sign in to do more
+    </h3>
+  </div>
+  <hr />
+  <div
+    className="container"
+    id="log-in-form"
+  >
+    <div
+      className="heading"
+    >
+      <h1
+        style={
+          Object {
+            "color": "#000000",
+            "textShadow": "0 0 0 black",
+          }
+        }
+      >
+        Log In Your Account
+      </h1>
+    </div>
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email:
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required={true}
+          type="email"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="pwd"
+        >
+          Password:
+        </label>
+        <input
+          className="form-control"
+          id="pwd"
+          name="password"
+          placeholder="Enter password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="form-group form-group-btn"
+      >
+        <button
+          className="btn btn-success btn-lg"
+          style={
+            Object {
+              "marginTop": "20%",
+            }
+          }
+          type="submit"
+        >
+          Log In
+        </button>
+      </div>
+      <div
+        className="clearfix"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`ResetUserPassword component should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h3>
+       You can now reset your password
+    </h3>
+  </div>
+  <hr />
+  <div
+    style={
+      Object {
+        "margin": "200px 400px",
+      }
+    }
+  >
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email:
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required={true}
+          type="email"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="pwd"
+        >
+           New Password:
+        </label>
+        <input
+          className="form-control"
+          id="pwd"
+          name="new_password"
+          placeholder="Enter password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="form-group form-group-btn"
+      >
+        <button
+          className="btn btn-success btn-lg"
+          style={
+            Object {
+              "marginTop": "3%",
+            }
+          }
+          type="submit"
+        >
+          Reset Password
+        </button>
+      </div>
+      <div
+        className="clearfix"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`UserRegistration component should match snapshot 1`] = `
+<div>
+  <_class
+    options={
+      Object {
+        "top": "50px",
+        "zIndex": 200,
+      }
+    }
+  />
+  <AuthNav />
+  <div
+    className="container"
+  >
+    <h3>
+       Please register to login
+    </h3>
+  </div>
+  <hr />
+  <div
+    className="container"
+    id="registration-form"
+  >
+    <div
+      className="image"
+    />
+    <div
+      className="frm"
+    >
+      <h1>
+        Sign up
+      </h1>
+      <form>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="username"
+          >
+            Username:
+          </label>
+          <input
+            className="form-control"
+            id="username"
+            name="name"
+            placeholder="Enter username"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="email"
+          >
+            Email:
+          </label>
+          <input
+            className="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required={true}
+            type="email"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="pwd"
+          >
+            Password:
+          </label>
+          <input
+            className="form-control"
+            id="pwd"
+            name="password"
+            placeholder="Enter password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <div
+          className="fixed"
+        >
+          <button
+            className="btn btn-success btn-lg"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
