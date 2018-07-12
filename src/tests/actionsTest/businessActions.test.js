@@ -21,6 +21,7 @@ const store = mockStore({ data: {} });
 
 const reviewData = { description: "Great customer services!" };
 const reviewDataMock = { description: "Great customer services!", id: 1 };
+const userBusinessDataMock = { name: "Andela", category: "Technology", location: "Bukoto street", description: "This is Andela", userid: 1, id: 1};
 const businessDataMock = { name: "Andela", category: "Technology", location: "Bukoto street", description: "This is Andela", id: 1};
 const businessData = { name: "Andela", category: "Technology", location: "Bukoto street", description: "This is Andela"};
 const loginData = { email: "clerry@gmail.com", password: "clerry55" };
@@ -136,5 +137,53 @@ describe("all business actions", () => {
       return store.dispatch(actions.fetchReview(id));
       expect(calledActions).toEqual(expectedActions);
   })
+
+  it('creates SEARCH_BUSINESSES action after successfully getting businesses', () => {
+    let q = "";
+    localStorage.setItem("token", loginUserMock.access_token);
+    fetchMock.getOnce(`${url}v1/api/businesses?q=${q}`,
+    { body: {}, headers: { access_token: localStorage.getItem("access_token"), 
+                                  'Content-Type': 'application/json' }})
+    const expectedActions = [
+        { 
+            type: SEARCH_BUSINESSES,
+            message: businessDataMock
+        }
+        ];
+    return store.dispatch(actions.searchBusinesses(q));
+    expect(calledActions).toEqual(expectedActions);
+})
+
+it('creates FETCH_BUSINESSES action after successfully getting businesses', () => {
+    localStorage.setItem("token", loginUserMock.access_token);
+    fetchMock.getOnce(`${url}v1/api/businesses`,
+    { body: {}, headers: { access_token: localStorage.getItem("access_token"), 
+                                  'Content-Type': 'application/json' }})
+    const expectedActions = [
+        { 
+            type: FETCH_BUSINESSES,
+            message: businessDataMock
+        }
+        ];
+    return store.dispatch(actions.fetchBusinesses());
+    expect(calledActions).toEqual(expectedActions);
+})
+
+
+it('creates USER_BUSINESSES action after successfully getting businesses', () => {
+    let userid = userBusinessDataMock.userid;
+    localStorage.setItem("token", loginUserMock.access_token);
+    fetchMock.getOnce(`${url}v1/api/user/${userid}/businesses`,
+    { body: {}, headers: { access_token: localStorage.getItem("access_token"), 
+                                  'Content-Type': 'application/json' }})
+    const expectedActions = [
+        { 
+            type: USER_BUSINESSES,
+            message: businessDataMock
+        }
+        ];
+    return store.dispatch(actions.userBusinesses(userid));
+    expect(calledActions).toEqual(expectedActions);
+})
 
   })

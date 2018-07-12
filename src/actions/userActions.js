@@ -1,7 +1,8 @@
 import { REGISTER_USER, LOGIN_USER, RESET_PASSWORD } from './types';
+import {url} from "actions/baseUrl"
 import {notify} from 'react-notify-toast';
 import jwtDecode from 'jwt-decode'
-// import history from '../components/history';
+
 
 export const registerUser = credentials => dispatch => {
     let options = {
@@ -11,7 +12,7 @@ export const registerUser = credentials => dispatch => {
             'Content-Type':'application/json'
             }
     };
-    return fetch(`http://127.0.0.1:5000/v1/api/auth/register`, options)
+    return fetch(`${url}v1/api/auth/register`, options)
     .then(response => response.json())
     .then(data => {dispatch(
         {type: REGISTER_USER,
@@ -30,10 +31,10 @@ export const loginUser = credentials => dispatch => {
             'Content-Type':'application/json'
             }
     };
-    return fetch(`http://127.0.0.1:5000/v1/api/auth/login`, options)
+    return fetch(`${url}v1/api/auth/login`, options)
     .then(response => response.json())
     .then(data => {
-        //decode the token to know which user is logging in.
+        //decode the token to know which user is logged in.
         const user = jwtDecode(data.access_token);
         localStorage.setItem("access_token",data.access_token); 
         localStorage.setItem("user_id",user.sub);
@@ -48,7 +49,6 @@ export const loginUser = credentials => dispatch => {
         // do something with the error
         // console.log("An error occured")
     });
-    // history.push('/registerbusiness') 
 }
 
 export const passwordReset = credentials => dispatch => {
@@ -60,7 +60,7 @@ export const passwordReset = credentials => dispatch => {
             access_token: localStorage.getItem("access_token")
             }
     };
-    return fetch(`http://127.0.0.1:5000/v1/api/auth/reset_password`, options)
+    return fetch(`${url}v1/api/auth/reset_password`, options)
     .then(response => response.json())
     .then(data => {dispatch(
         {type: RESET_PASSWORD,

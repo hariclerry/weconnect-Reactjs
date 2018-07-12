@@ -1,4 +1,4 @@
-// import history from '../components/history';
+import {url} from "actions/baseUrl"
 import {
   REGISTER_BUSINESS,
   FETCH_BUSINESSES,
@@ -21,7 +21,7 @@ export const registerBusiness = credentials => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`http://127.0.0.1:5000/v1/api/businesses`, options)
+  return fetch(`${url}v1/api/businesses`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
@@ -29,7 +29,6 @@ export const registerBusiness = credentials => dispatch => {
         message: data
       });
       // notify.show("Business successfully registered", "success");
-      // history.push('/dashboard')
     });
 };
 
@@ -42,7 +41,7 @@ export const fetchBusinesses = (page = "") => dispatch => {
     }
   };
   if (page === "") {
-    return fetch(`http://127.0.0.1:5000/v1/api/businesses`, options)
+    return fetch(`${url}v1/api/businesses`, options)
       .then(response => response.json())
       .then(data => {
         dispatch({
@@ -53,21 +52,17 @@ export const fetchBusinesses = (page = "") => dispatch => {
         });
       });
   } else {
-    return fetch(
-      "http://127.0.0.1:5000/v1/api/businesses?page=" + page,
+    return fetch(`${url}v1/api/businesses?page=` + page,
       options
     )
       .then(response => response.json())
       .then(data => {
-        console.log("data", data);
         dispatch({
           type: FETCH_BUSINESSES,
           prevPage: data["prev_page"],
           nextPage: data["next_page"],
           message: data
         });
-        console.log(data);
-        // history.push('/dashboard')
       });
   }
 };
@@ -81,22 +76,18 @@ export const searchBusinesses = (q = "") => dispatch => {
     }
   };
   if (q !== "") {
-    return fetch(`http://127.0.0.1:5000/v1/api/businesses?q=${q}`, options)
+    return fetch(`${url}v1/api/businesses?q=${q}`, options)
       .then(response => response.json())
       .then(data => {
         dispatch({
           type: SEARCH_BUSINESSES,
-        //   prevPage: data["prev_page"],
-        //   nextPage: data["next_page"],
           message: data
         });
-        // history.push('/dashboard')
       });
   }
 };
 
 export const userBusinesses = userid => dispatch => {
-  console.log("fetching...");
   let options = {
     method: "GET",
     headers: {
@@ -104,8 +95,7 @@ export const userBusinesses = userid => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(
-    `http://127.0.0.1:5000/v1/api/user/${userid}/businesses`,
+  return fetch(`${url}v1/api/user/${userid}/businesses`,
     options
   )
     .then(response => response.json())
@@ -114,8 +104,6 @@ export const userBusinesses = userid => dispatch => {
         type: USER_BUSINESSES,
         message: data
       });
-      console.log(data);
-      // history.push('/dashboard')
     });
 };
 
@@ -127,20 +115,17 @@ export const singleBusiness = id => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
+  return fetch(`${url}v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
         type: SINGLE_BUSINESS,
         message: data
       });
-      console.log(data);
-      // history.push('/dashboard')
     });
 };
 
 export const deleteBusiness = id => dispatch => {
-  console.log("LOGGING: deleting...");
   let options = {
     method: "DELETE",
     headers: {
@@ -148,20 +133,17 @@ export const deleteBusiness = id => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
+  return fetch(`${url}v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
         type: DELETE_BUSINESS,
         message: data
       });
-      console.log(data);
-      // history.push('/dashboard')
     });
 };
 
 export const editBusiness = (id, data) => dispatch => {
-  console.log("LOGGING: updatinggggg...");
   let options = {
     method: "PUT",
     body: data,
@@ -170,20 +152,18 @@ export const editBusiness = (id, data) => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`http://127.0.0.1:5000/v1/api/businesses/${id}`, options)
+  return fetch(`${url}v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
         type: EDIT_BUSINESS,
         message: data
       });
-      console.log(data);
       // history.push('/dashboard')
     });
 };
 
 export const reviewBusiness = (id, credentials) => dispatch => {
-  console.log("LOGGING: reviewinggggg...");
   let options = {
     method: "POST",
     body: credentials,
@@ -192,7 +172,7 @@ export const reviewBusiness = (id, credentials) => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
-  return fetch(`http://127.0.0.1:5000/v1/api/business/${id}/reviews`, options)
+  return fetch(`${url}v1/api/business/${id}/reviews`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
@@ -200,12 +180,10 @@ export const reviewBusiness = (id, credentials) => dispatch => {
         message: data
       });
 
-      // history.push('/dashboard')
     });
 };
 
 export const fetchReview = id => dispatch => {
-  console.log("LOGGING: review.......");
   let options = {
     method: "GET",
     headers: {
@@ -214,7 +192,7 @@ export const fetchReview = id => dispatch => {
     }
   };
 
-  return fetch(`http://127.0.0.1:5000/v1/api/business/${id}/reviews`, options)
+  return fetch(`${url}v1/api/business/${id}/reviews`, options)
     .then(response => response.json())
     .then(data => {
       dispatch({
