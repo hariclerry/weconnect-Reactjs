@@ -11,7 +11,7 @@ import { registerUser } from "actions/userActions";
 
 
 
-class UserSignup extends React.Component {
+export class UserSignup extends React.Component {
 
   componentWillReceiveProps(recieved) {
     if (

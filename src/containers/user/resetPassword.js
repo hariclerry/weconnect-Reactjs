@@ -11,7 +11,7 @@ import ResetUserPassword from "components/user/resetPassword";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 
 
-class ResetPassword extends React.Component {
+export class ResetPassword extends React.Component {
       componentDidMount() {
         checkIfUserIsLoggedIn(this.props.email, this.props.history);
       }
@@ -47,8 +47,10 @@ class ResetPassword extends React.Component {
 }
 
 passwordReset.propTypes = {
+  passwordReset: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
-  userPasswordReset: PropTypes.object.isRequired
+  userPasswordReset: PropTypes.object.isRequired,
+  
 };
 
 const mapStateToProps = state => ({
