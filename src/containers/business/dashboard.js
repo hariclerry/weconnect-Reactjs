@@ -10,7 +10,7 @@ import Dashboard from "components/business/dashboard";
 
 // TO DO: import { NotificationManager } from "react-notifications";
 
-class UserDashboard extends React.Component {
+export class UserDashboard extends React.Component {
   componentDidMount() {
     this.props.userBusinesses(localStorage.getItem("user_id"));
     // notify.show("Successfully logged in", "success");

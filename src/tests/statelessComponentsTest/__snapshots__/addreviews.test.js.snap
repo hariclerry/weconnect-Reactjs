@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewBusiness should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <div
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <div
+        className="box"
+      >
+        <h1 />
+        <p>
+          <b>
+            Category: 
+          </b>
+           
+        </p>
+        <p>
+          <b>
+            Location: 
+          </b>
+        </p>
+        <p>
+          <b>
+            Description: 
+          </b>
+        </p>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "50px 150px",
+      }
+    }
+  >
+    <form
+      onSubmit={Object {}}
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label "
+          htmlFor="description"
+        >
+          Say Something about this Business:
+        </label>
+        <textarea
+          className="form-control"
+          cols="2"
+          id="description"
+          name="description"
+          required={true}
+          rows="2"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <button
+          className="btn btn-primary "
+          name="submit"
+          type="submit"
+        >
+          Add Review
+        </button>
+      </div>
+    </form>
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "50px 150px",
+        "width": "auto",
+      }
+    }
+  >
+    <h3>
+      Reviews
+    </h3>
+  </div>
+  <Footer />
+</div>
+`;

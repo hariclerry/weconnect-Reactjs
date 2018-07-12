@@ -10,7 +10,7 @@ import { jsonStringify } from "utils/jsonHelper";
 import Login from "components/user/login";
 
 
-class UserLogin extends React.Component {
+export class UserLogin extends React.Component {
       // componentWillMount() {
       //   notify.show("Successfully logged in", "success");
       // }
