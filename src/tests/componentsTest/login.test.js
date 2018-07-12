@@ -17,7 +17,7 @@ it('should match snapshot',() =>{
 })
 
 it("should render the RegisterBusiness component", () => {
-  const mountComponent = mount(<MemoryRouter><Login store = {weconnectStore}/></MemoryRouter>)
+  const mountComponent = shallow(<MemoryRouter><Login store = {weconnectStore}/></MemoryRouter>)
   expect(mountComponent.length).toBe(1);
   
 });

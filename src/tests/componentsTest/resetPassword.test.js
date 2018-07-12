@@ -16,7 +16,7 @@ it('should match snapshot',() =>{
   expect(wrapper).toMatchSnapshot();
 })
 
-it("should render the SingleBusiness component", () => {
+it("should render the ResetPassword component", () => {
   const mountComponent = shallow(<MemoryRouter>< ResetPassword store = {weconnectStore}/></MemoryRouter>)
   expect(mountComponent.length).toBe(1);
   
