@@ -2,12 +2,12 @@ import React from "react";
 import {shallow} from "enzyme";
 import RegisterBusiness from "components/business/registerBusiness";
 // import Businesses from "components/business/businessList";
-import UserRegistration from "components/user/signUp";
+import UserRegistration from "components/user/signup";
 import Login from "components/user/login";
 import ResetUserPassword from "components/user/resetPassword";
-// import Pagination from "components/business/pagination";
-// import SearchBusiness from "components/business/searchBar";
-// import SingleBusiness from "components/business/singleBusiness";
+import AuthNav from "components/common/authNavbar";
+import Footer from "components/common/footer";
+import IndexPage from "components/common/indexPage";
 
 
 
@@ -36,30 +36,27 @@ describe('ResetUserPassword component',() => {
   })
 })
 
-// describe('Pagination component',() => {
+describe('AuthNav component',() => {
 
-//   it('should match snapshot',() =>{
-//       const wrapper = shallow(<Pagination />)
-//       expect(wrapper).toMatchSnapshot();
-//   })
-// })
+  it('should match snapshot',() =>{
+      const wrapper = shallow(<AuthNav />)
+      expect(wrapper).toMatchSnapshot();
+  })
+})
 
-// describe('SearchBusiness component',() => {
+describe('Footer component',() => {
 
-//   it('should match snapshot',() =>{
-//       const wrapper = shallow(<SearchBusiness />)
-//       expect(wrapper).toMatchSnapshot();
-//   })
-// })
+  it('should match snapshot',() =>{
+      const wrapper = shallow(<Footer />)
+      expect(wrapper).toMatchSnapshot();
+  })
+})
 
-// describe('SingleBusiness component',() => {
-//   const props = {
-//     business:[]
-//     }
+describe('IndexPage component',() => {
 
-//   it('should match snapshot',() =>{
-//       const wrapper = shallow(<SingleBusiness {...props}/>)
-//       expect(wrapper).toMatchSnapshot();
-//   })
-// })
+  it('should match snapshot',() =>{
+      const wrapper = shallow(<IndexPage />)
+      expect(wrapper).toMatchSnapshot();
+  })
+})
 
