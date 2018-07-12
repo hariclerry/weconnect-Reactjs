@@ -1,8 +1,8 @@
 import React from "react";
 import {shallow} from "enzyme";
 import RegisterBusiness from "components/business/registerBusiness";
-import Businesses from "components/business/businessList";
-import ReviewBusiness from "components/business/addreview";
+// import Businesses from "components/business/businessList";
+import ReviewBusiness from "components/business/addReview";
 import Dashboard from "components/business/dashboard";
 import EditBusiness from "components/business/editBusiness";
 import Pagination from "components/business/pagination";
