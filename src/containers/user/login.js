@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import {notify} from "react-notify-toast";
+import Notifications, { notify} from "react-notify-toast";
 
 import { loginUser } from "actions/userActions";
 import { jsonStringify } from "utils/jsonHelper";
@@ -28,8 +28,7 @@ export class UserLogin extends React.Component {
         this.props.history.push("/dashboard");
       })
       .catch(err => {
-        // alert("Wrong email or password");
-        notify.show("Wrong user password or email", "warning");
+         err.notify.show("Wrong email or password", "warning");
       });
   };
   render() {
@@ -37,7 +36,7 @@ export class UserLogin extends React.Component {
     return (
       <div>
         <Login 
-        Login={this.Login}/>
+        Login={this.Login}/>u
       </div>
       
     );

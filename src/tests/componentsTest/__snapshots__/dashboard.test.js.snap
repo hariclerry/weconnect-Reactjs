@@ -9,23 +9,38 @@ exports[`UserDashboard component should match snapshot 1`] = `
   <div
     className="container"
   >
-    <h4>
-      Hello 
-      , welcome to your dashboard
-    </h4>
-    <Link
-      className="btn btn-success"
-      replace={false}
-      role="button"
+    <div
       style={
         Object {
-          "marginRight": "20px",
+          "marginBottom": "150px",
         }
       }
-      to="/resetpassword/"
     >
-      Reset Password
-    </Link>
+      <h4
+        style={
+          Object {
+            "float": "left",
+          }
+        }
+      >
+        Hello 
+        , welcome to your dashboard
+      </h4>
+      <Link
+        className="btn btn-success"
+        replace={false}
+        role="button"
+        style={
+          Object {
+            "float": "right",
+            "margin": "0",
+          }
+        }
+        to="/resetpassword/"
+      >
+        Reset Password
+      </Link>
+    </div>
     <hr />
     <br />
     <div

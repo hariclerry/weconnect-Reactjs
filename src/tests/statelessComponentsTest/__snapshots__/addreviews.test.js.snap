@@ -2,6 +2,9 @@
 
 exports[`ReviewBusiness should match snapshot 1`] = `
 <div>
+  <_class
+    options={Object {}}
+  />
   <withRouter(Connect(NavBar)) />
   <div
     className="container"

@@ -23,16 +23,15 @@ export class ResetPassword extends React.Component {
       email: e.target.elements.email.value,
       new_password: e.target.elements.new_password.value
     };
-    this.props
-      .passwordReset(jsonStringify(userCredential))
-      this.props.history.push("/login");
-      // .then(() => {
-      //   this.props.history.push("/login");
-      // })
-      // .catch(err => {
-      //   // alert("Wrong email or password");
-      //   notify.show("Wrong user password or email", "warning");
-      // });
+    this.props.passwordReset(jsonStringify(userCredential))
+    .then(() => {
+      this.props.history.push("/resetpassword");
+      notify.show("Password Successfully Reset", "success");
+    })
+      
+      
+    
+     
   };
   render() {
 

@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import {notify} from "react-notify-toast";
 
 import { jsonStringify } from "utils/jsonHelper";
 import AddReview from "components/business/addReview";
@@ -35,7 +36,11 @@ class Reviews extends React.Component {
       description: e.target.elements.description.value
     };
     const businessId = this.props.match.params.id;
-    this.props.reviewBusiness(businessId, jsonStringify(reviewCredential));
+    this.props.reviewBusiness(businessId, jsonStringify(reviewCredential))
+    .then(() => {
+      notify.show("Reviews Successfully Added", "success");
+    })
+    
     window.location.reload();
   };
 

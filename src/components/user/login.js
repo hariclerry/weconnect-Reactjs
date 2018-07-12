@@ -10,7 +10,7 @@ import "static/css/stylesform.css";
 
 const Login = ({ Login }) => (
   <div>
-    <Notifications />
+  <Notifications />
     <AuthNavbar />
     <div className="container">
       <h3> Please sign in to do more</h3>

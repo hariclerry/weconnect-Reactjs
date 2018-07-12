@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Notifications, {notify} from 'react-notify-toast';
+import Notifications, {notify} from "react-notify-toast";
 
 import { jsonStringify } from "utils/jsonHelper";
 import Signup from "components/user/signup";
@@ -13,19 +13,18 @@ import { registerUser } from "actions/userActions";
 
 export class UserSignup extends React.Component {
 
-  componentWillReceiveProps(recieved) {
-    if (
-      recieved &&
-      recieved.user.message === "Registration successful. Please login."
-    ) {
-      notify.show("Successfully registered", "sucess", 5000);
-      // this.props.history.push("/login");
-    } else {
-      if (recieved && recieved.user.status === "failure") {
+  // componentWillReceiveProps(recieved) {
+  //   if (
+  //     recieved &&
+  //     recieved.user.message === "Registration successful. Please login."
+  //   ) {
+  //     notify.show("Successfully registered", "sucess", 5000);
+  //   } else {
+  //     if (recieved && recieved.user.status === "failure") {
     
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
   //prevent the default link behavior of opening a new page
   signUp = e => {
@@ -35,8 +34,16 @@ export class UserSignup extends React.Component {
       email: e.target.elements.email.value,
       password: e.target.elements.password.value
     };
-    this.props.registerUser(jsonStringify(userCredential));
-    this.props.history.push("/login");
+    this.props.registerUser(jsonStringify(userCredential))
+    .then(() => {
+      this.props.history.push("/login");
+      notify.show("Successfully registered, please login", "success");
+    })
+    // .catch(err => {
+    //    err.notify.show("User already exist", "warning");
+    // });
+    // // this.props.history.push("/login");
+    
   };
    
   render() {
@@ -45,6 +52,7 @@ export class UserSignup extends React.Component {
         <Signup 
         signUp={this.signUp}
         />
+        <Notifications />
       </div>
     );
   }

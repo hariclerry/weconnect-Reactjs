@@ -1,15 +1,19 @@
 import React from "react";
 
+import Notifications from "react-notify-toast";
+
 import Footer from "components/common/footer";
 import NavBar from "components/common/navBar";
-
 import "static/css/bootstrap.min.css";
 import "static/css/box-model.css";
 import "static/css/fix-footer.css";
 
 export const ReviewBusiness = ({ reviews, addReview, businessName }) => (
   <div>
+
+     <Notifications />
     <NavBar />
+
     <div className="container">
       <div style={{ margin: "20px" }}>
       <div className="col-md-8 col-md-offset-2" className="box">

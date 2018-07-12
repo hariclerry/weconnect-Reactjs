@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import {notify} from "react-notify-toast";
 
 import { singleBusiness, deleteBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
@@ -19,8 +20,9 @@ class Business extends React.Component {
   deleteBusiness = id => {
     if (window.confirm("Are you sure you want to delete this business?")) {
       this.props.deleteBusiness(id).then(() => {
+        this.props.history.push("/dashboard");
+        notify.show("Business Successfully Deleted", "success");
       });
-      this.props.history.push("/dashboard");
     }
   };
 
@@ -43,7 +45,6 @@ SingleBusiness.protoTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     email: state.auth.loginData.email,
     business: state.business.singleBusinessMessage.business_data,

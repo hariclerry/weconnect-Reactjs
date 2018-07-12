@@ -1,8 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import {notify} from "react-notify-toast";
 
 import EditBusiness from "components/business/editBusiness";
 import { jsonStringify } from "utils/jsonHelper";
@@ -40,8 +41,11 @@ class EditBusinessContainer extends React.Component {
       description: e.target.elements.description.value
     };
     const businessId = this.props.match.params.id;
-    this.props.editBusiness(businessId, jsonStringify(businessCredential));
-    this.props.history.push("/dashboard");
+    this.props.editBusiness(businessId, jsonStringify(businessCredential))
+    .then(() => {
+      this.props.history.push("/dashboard");
+      notify.show("Business Successfully Edited", "success");
+    })
   };
 
   render() {

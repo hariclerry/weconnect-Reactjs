@@ -41,7 +41,7 @@ Change the directory to the project folder
  ```npm run build```
 ### Checkout the live app on heroku
 
-### To Do
+https://reactjs-weconnect.herokuapp.com/
 
 ### API
 

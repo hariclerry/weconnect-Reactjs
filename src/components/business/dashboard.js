@@ -14,17 +14,19 @@ const Dashboard = ({ businesses, username }) => (
         <Notifications />
         <NavBar />
         <div className="container">
-          <h4>
+          <div  style={{ marginBottom: "150px"}}>
+          <h4  style={{ float:"left"}}>
             Hello {username}, welcome to your dashboard
           </h4>
           <Link
                           to={`/resetpassword/`}
                           className="btn btn-success"
                           role="button"
-                          style={{ marginRight: "20px" }}
+                          style={{ margin: "0",  float:"right"}}
                         >
                         Reset Password
                         </Link>
+                        </div>
           <hr />
           <br />
           <div className="fixed-footer">

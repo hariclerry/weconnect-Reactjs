@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-// import  {notify} from 'react-notify-toast';
+import Notifications, {notify} from "react-notify-toast";
 
 import { registerBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
@@ -26,7 +26,11 @@ class AddBusiness extends React.Component {
       description: e.target.elements.description.value
     };
     this.props.registerBusiness(jsonStringify(businessCredential))
-    this.props.history.push("/dashboard");
+    .then(() => {
+      this.props.history.push("/dashboard");
+      notify.show("Business Successfully registered", "success");
+    })
+    
   };
   render() {
     return (
