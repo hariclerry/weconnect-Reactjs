@@ -8,7 +8,7 @@ import {
   EDIT_BUSINESS,
   REVIEW_BUSINESS,
   FETCH_BUSINESS_REVIEWS,
-  SEARCH_BUSINESSES
+  SEARCH_BUSINESSES,
 } from "./types";
 
 export const registerBusiness = credentials => dispatch => {
@@ -102,6 +102,7 @@ export const userBusinesses = userid => dispatch => {
 };
 
 export const singleBusiness = id => dispatch => {
+  
   let options = {
     method: "GET",
     headers: {
@@ -109,6 +110,10 @@ export const singleBusiness = id => dispatch => {
       access_token: localStorage.getItem("access_token")
     }
   };
+   dispatch({
+        type: SINGLE_BUSINESS,
+        message: {business_data:""}
+      });
   return fetch(`${url}v1/api/businesses/${id}`, options)
     .then(response => response.json())
     .then(data => {
@@ -153,7 +158,6 @@ export const editBusiness = (id, data) => dispatch => {
         type: EDIT_BUSINESS,
         message: data
       });
-      // history.push('/dashboard')
     });
 };
 
@@ -192,6 +196,5 @@ export const fetchReview = id => dispatch => {
         type: FETCH_BUSINESS_REVIEWS,
         message: data
       });
-      console.log("Data received:", data);
     });
 };
