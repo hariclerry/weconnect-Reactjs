@@ -15,7 +15,7 @@ import {
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 
 /**
- * Review Container Component for adding a review and view all the reviews.
+ * Review Container Component for adding a review and viewing all the reviews.
  *
  */
 

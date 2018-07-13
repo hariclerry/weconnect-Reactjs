@@ -13,18 +13,10 @@ const Dashboard = ({ businesses, username }) => (
     <Notifications />
     <NavBar />
     <div className="container">
-      <div style={{ marginBottom: "150px" }}>
-        <h4 style={{ float: "left" }}>
+      <div>
+        <h4>
           Hello {username}, welcome to your dashboard
         </h4>
-        <Link
-          to={`/resetpassword/`}
-          className="btn btn-success"
-          role="button"
-          style={{ margin: "0", float: "right" }}
-        >
-          Reset Password
-        </Link>
       </div>
       <hr />
       <br />

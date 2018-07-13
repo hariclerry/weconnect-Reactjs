@@ -17,10 +17,8 @@ const NavBar = ({ logoutUser }) => (
       </div>
 
       <ul className="nav navbar-nav navbar-right">
-        <li>
-          <a href="">
-            <span className="glyphicon glyphicon-user" />User
-          </a>
+      <li>
+          <NavLink to={`/resetpassword/`}>Reset Password</NavLink>
         </li>
         <li style={{ marginTop: "15px", marginRight: "12px" }}>
           <button
