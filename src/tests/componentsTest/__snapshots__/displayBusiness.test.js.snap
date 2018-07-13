@@ -67,37 +67,17 @@ exports[`Business List should match snapshot 1`] = `
           </tr>
         </thead>
         <tbody>
-          <tr
-            key="1"
-          >
-            <td>
-              business test
-            </td>
-            <td>
-              test
-            </td>
-            <td>
-              loc
-            </td>
-            <td>
-              desc
-            </td>
-            <td>
-              <Link
-                className="btn btn-info"
-                replace={false}
-                role="button"
-                style={
-                  Object {
-                    "marginRight": "20px",
-                  }
-                }
-                to="/addreview/1"
-              >
-                Review
-              </Link>
-            </td>
-          </tr>
+          <BusinessLists
+            business={
+              Object {
+                "category": "test",
+                "description": "desc",
+                "id": 1,
+                "location": "loc",
+                "name": "business test",
+              }
+            }
+          />
         </tbody>
       </table>
     </div>

@@ -13,8 +13,9 @@ import Pagination from "components/business/pagination";
  * Business Container Component displaying lists of all businesses.
  *
  */
+
 export class BusinessList extends React.Component {
-  // Initial local state
+  // Initialise local state
   constructor(props) {
     super(props);
     this.state = {
@@ -25,10 +26,13 @@ export class BusinessList extends React.Component {
     };
   }
 
+
   componentDidMount() {
+    //this.props.fetchBusinesses();
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
     //  execute fetch business function
     this.props.fetchBusinesses();
+    
   }
 
   search = value => {
@@ -37,8 +41,10 @@ export class BusinessList extends React.Component {
   };
 
   render() {
+  
     // Deconstruct props/objects
     const { fetchBusinesses, prevPage, nextPage } = this.props;
+
 
     const searchedBusinesses = this.props.searchedBusinesses.business_data;
     // returns all businesses from props int a dict
@@ -48,14 +54,16 @@ export class BusinessList extends React.Component {
     if (businesses) {
       Array.prototype.reverse.call(businesses);
     }
+
+  
     return (
       <div>
+        
         <Businesses
           businesses={businesses}
-          searchedBusinesses={searchedBusinesses}
-          searchBusinesses={this.search}
           searching={this.state.searching}
-        />
+          searchedBusinesses={searchedBusinesses}
+          searchBusinesses={this.search} />
         <Pagination
           paginate={fetchBusinesses}
           prevPage={prevPage}
@@ -69,7 +77,8 @@ export class BusinessList extends React.Component {
 BusinessList.propTypes = {
   email: PropTypes.string.isRequired,
   fetchBusinesses: PropTypes.func.isRequired,
-  businesses: PropTypes.object
+  businesses: PropTypes.object,
+  searchedBusinesses: PropTypes.object
 };
 
 const mapStateToProps = state => {
@@ -85,6 +94,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchBusinesses, searchBusinesses }
+    { fetchBusinesses, searchBusinesses, checkIfUserIsLoggedIn }
   )(BusinessList)
 );

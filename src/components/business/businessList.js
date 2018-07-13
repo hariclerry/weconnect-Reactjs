@@ -1,16 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import BusinessLists from "components/business/displayBusinessList";
 import SearchBusiness from "components/business/searchBar";
 import NavBar from "components/common/navBar";
 import Footer from "components/common/footer";
 import "static/css/bootstrap.min.css";
 
-const Businesses = ({
-  businesses,
-  searchBusinesses,
-  searching,
-  searchedBusinesses
+const Businesses = ({businesses, searching, searchedBusinesses,
+  searchBusinesses
   }) => {
   let searchedBusinessesList;
   if (searchedBusinesses == null) {
@@ -56,40 +54,11 @@ const Businesses = ({
             <tbody>
               {searching
                 ? searchedBusinessesList.map((business, index) => (
-                    <tr key={business.id}>
-                      <td>{business.name}</td>
-                      <td>{business.category}</td>
-                      <td>{business.location}</td>
-                      <td>{business.description}</td>
-                      <td>
-                        <Link
-                          to={`/addreview/${business.id}`}
-                          className="btn btn-info"
-                          role="button"
-                          style={{ marginRight: "20px" }}
-                        >
-                          Review
-                        </Link>
-                      </td>
-                    </tr>
+                   <BusinessLists business={business}/> 
                   ))
                 : businesses.map((business, index) => (
-                    <tr key={business.id}>
-                      <td>{business.name}</td>
-                      <td>{business.category}</td>
-                      <td>{business.location}</td>
-                      <td>{business.description}</td>
-                      <td>
-                        <Link
-                          to={`/addreview/${business.id}`}
-                          className="btn btn-info"
-                          role="button"
-                          style={{ marginRight: "20px" }}
-                        >
-                          Review
-                        </Link>
-                      </td>
-                    </tr>
+                  <BusinessLists business={business}/> 
+                    
                   ))}
             </tbody>
           </table>
