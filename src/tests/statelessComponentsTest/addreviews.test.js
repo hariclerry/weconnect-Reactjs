@@ -17,10 +17,6 @@ describe('ReviewBusiness', ()=>{
                         businessName={businessName} />)
   })
 
-  // it('should display businesse',() =>{
-  //   expect(wrapper.containsMatchingElement("<td>business test</td>")).toBe(true);
-  // })
-
   it('should match snapshot', () =>{
     expect(wrapper).toMatchSnapshot();
   })

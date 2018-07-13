@@ -19,7 +19,7 @@ import { checkIfUserIsLoggedIn } from "actions/userActions";
  *
  */
 
-class Reviews extends React.Component {
+export class Reviews extends React.Component {
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
 
@@ -72,7 +72,8 @@ Reviews.propTypes = {
   username: PropTypes.string.isRequired,
   businessReviews: PropTypes.array.isRequired,
   fetchReview: PropTypes.func.isRequired,
-  businessName: PropTypes.func.isRequired
+  businessName: PropTypes.func.isRequired,
+
 };
 // Make state available to this components through props
 const mapStateToProps = state => {
