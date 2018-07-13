@@ -1,11 +1,14 @@
 import React from "react";
 
+import Notifications from "react-notify-toast";
+
 import NavBar from "components/common/navBar";
 import Footer from "components/common/footer";
 import "static/css/bootstrap.min.css";
 
 const ResetUserPassword = ({Userpassword}) => (
   <div>
+    <Notifications />
     <NavBar />
 
     <div className="container">

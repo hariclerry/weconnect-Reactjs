@@ -7,7 +7,8 @@ import {
   EDIT_BUSINESS,
   REVIEW_BUSINESS,
   FETCH_BUSINESS_REVIEWS,
-  SEARCH_BUSINESSES
+  SEARCH_BUSINESSES,
+  CLEAR_BUSINESS_INFO
 } from "../actions/types";
 
 const initialState = {

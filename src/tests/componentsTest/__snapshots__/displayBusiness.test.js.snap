@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Business List should match snapshot 1`] = `
+<div>
+  <withRouter(Connect(NavBar)) />
+  <div
+    style={
+      Object {
+        "float": "right",
+        "width": "50%",
+      }
+    }
+  >
+    <SearchBusiness
+      searchBusinesses={Object {}}
+    />
+  </div>
+  <div
+    className="container"
+  >
+    <div
+      style={
+        Object {
+          "margin": "100px",
+        }
+      }
+    >
+      <div>
+        <h4>
+          Below are a list of all Registered businesses
+        </h4>
+      </div>
+    </div>
+    <div
+      className="table-responsive"
+    >
+      <table
+        className="table table-striped"
+      >
+        <thead>
+          <tr>
+            <td>
+              <b>
+                Name
+              </b>
+            </td>
+            <td>
+              <b>
+                Category
+              </b>
+            </td>
+            <td>
+              <b>
+                Location
+              </b>
+            </td>
+            <td>
+              <b>
+                Description
+              </b>
+            </td>
+            <td>
+              <b>
+                Review
+              </b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <BusinessLists
+            business={
+              Object {
+                "category": "test",
+                "description": "desc",
+                "id": 1,
+                "location": "loc",
+                "name": "business test",
+              }
+            }
+          />
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

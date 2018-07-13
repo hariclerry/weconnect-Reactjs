@@ -3,13 +3,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { notify } from "react-notify-toast";
 
 import { singleBusiness, deleteBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 import SingleBusiness from "components/business/singleBusiness";
 
-class Business extends React.Component {
+/**
+ * Single business Container Component for displaying information of a single business.
+ *
+ */
 
+class Business extends React.Component {
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
     const { id } = this.props.match.params;
@@ -19,13 +24,14 @@ class Business extends React.Component {
   deleteBusiness = id => {
     if (window.confirm("Are you sure you want to delete this business?")) {
       this.props.deleteBusiness(id).then(() => {
+        this.props.history.push("/dashboard");
+        notify.show("Business Successfully Deleted", "success");
       });
-      this.props.history.push("/dashboard");
     }
   };
 
   render() {
-    // Deconstructing an object
+    // Deconstructing an props/object
     const { business } = this.props;
     return (
       <SingleBusiness
@@ -35,7 +41,7 @@ class Business extends React.Component {
     );
   }
 }
-
+// Validate props
 SingleBusiness.protoTypes = {
   email: PropTypes.string.isRequired,
   singleBusiness: PropTypes.func.isRequired,
@@ -43,7 +49,6 @@ SingleBusiness.protoTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state);
   return {
     email: state.auth.loginData.email,
     business: state.business.singleBusinessMessage.business_data,

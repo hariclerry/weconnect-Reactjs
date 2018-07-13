@@ -3,23 +3,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { notify } from "react-notify-toast";
 
 import { jsonStringify } from "utils/jsonHelper";
 import AddReview from "components/business/addReview";
-import { singleBusiness, fetchReview, reviewBusiness } from "actions/businessActions";
+import {
+  singleBusiness,
+  fetchReview,
+  reviewBusiness
+} from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 
 /**
- * Review Container Component for adding a review and view all the reviews.
- * 
+ * Review Container Component for adding a review and viewing all the reviews.
+ *
  */
 
-class Reviews extends React.Component {
-
+export class Reviews extends React.Component {
   componentDidMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
 
-    //  execute single business function and returns business information 
+    //  execute single business function and returns business information
     const { id } = this.props.match.params;
     this.props.singleBusiness(id);
 
@@ -30,13 +34,19 @@ class Reviews extends React.Component {
 
   addReview = e => {
     // Prevent default submit event trigger(synthetic event):
-    e.preventDefault(); 
+    e.preventDefault();
     let reviewCredential = {
       description: e.target.elements.description.value
     };
     const businessId = this.props.match.params.id;
-    this.props.reviewBusiness(businessId, jsonStringify(reviewCredential));
-    window.location.reload();
+    this.props
+      .reviewBusiness(businessId, jsonStringify(reviewCredential))
+      .then(() => {
+        notify.show("Reviews Successfully Added", "success");
+      });
+      this.props.fetchReview(businessId);
+      e.target.elements.description.value = "";
+    // window.location.reload();
   };
 
   render() {
@@ -56,25 +66,28 @@ class Reviews extends React.Component {
     );
   }
 }
+
+// Validate proptypes
 Reviews.propTypes = {
   email: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   businessReviews: PropTypes.array.isRequired,
   fetchReview: PropTypes.func.isRequired,
-  businessName: PropTypes.func.isRequired
-};
+  businessName: PropTypes.func.isRequired,
 
+};
+// Make state available to this components through props
 const mapStateToProps = state => {
-  console.log(state);
+  console.log(state)
   return {
     username: state.auth.loginData.username,
     email: state.auth.loginData.email,
     businessReviews: state.business.fetchReviewMessage,
     reviews: state.business.fetchReviewMessage.review_data,
-    businessName: state.business.singleBusinessMessage.business_data,
+    businessName: state.business.singleBusinessMessage.business_data
   };
 };
-
+// Dispatches actions to Props
 const mapDispatchToProps = dispatch => ({
   singleBusiness: id => dispatch(singleBusiness(id)),
   fetchReview: id => dispatch(fetchReview(id)),

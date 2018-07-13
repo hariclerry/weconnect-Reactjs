@@ -3,53 +3,43 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Notifications, {notify} from 'react-notify-toast';
+import Notifications, { notify } from "react-notify-toast";
 
 import { jsonStringify } from "utils/jsonHelper";
 import Signup from "components/user/signup";
 import { registerUser } from "actions/userActions";
 
+/**
+ * User registration Container Component for registering users.
+ *
+ */
 
-
-class UserSignup extends React.Component {
-
-  componentWillReceiveProps(recieved) {
-    if (
-      recieved &&
-      recieved.user.message === "Registration successful. Please login."
-    ) {
-      notify.show("Successfully registered", "sucess", 5000);
-      // this.props.history.push("/login");
-    } else {
-      if (recieved && recieved.user.status === "failure") {
-    
-      }
-    }
-  }
-
-  //prevent the default link behavior of opening a new page
+export class UserSignup extends React.Component {
+  // Prevent default submit event trigger(synthetic event):
   signUp = e => {
-    e.preventDefault(); 
+    e.preventDefault();
     let userCredential = {
       username: e.target.elements.name.value,
       email: e.target.elements.email.value,
       password: e.target.elements.password.value
     };
-    this.props.registerUser(jsonStringify(userCredential));
-    this.props.history.push("/login");
+    this.props.registerUser(jsonStringify(userCredential)).then(() => {
+      this.props.history.push("/login");
+      notify.show("Successfully registered, please login", "success");
+    });
   };
-   
+
   render() {
     return (
       <div>
-        <Signup 
-        signUp={this.signUp}
-        />
+        <Signup signUp={this.signUp} />
+        <Notifications />
       </div>
     );
   }
 }
 
+// validate props
 Signup.protoTypes = {
   registerUser: PropTypes.func.isRequired
 };

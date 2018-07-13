@@ -1,0 +1,478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthNav component should match snapshot 1`] = `
+<nav
+  className="navbar navbar-inverse"
+>
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="navbar-header"
+    >
+      <a
+        className="navbar-brand"
+        href="/"
+      >
+        WeConnect
+      </a>
+    </div>
+    <ul
+      className="nav navbar-nav"
+    >
+      <li
+        className="active"
+      >
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
+    </ul>
+    <ul
+      className="nav navbar-nav navbar-right"
+    >
+      <li>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="/signup"
+        >
+          <span
+            className="glyphicon glyphicon-user"
+          />
+           Sign Up
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          activeClassName="active"
+          aria-current="page"
+          to="/login"
+        >
+          <span
+            className="glyphicon glyphicon-log-in"
+          />
+           Sign In
+        </NavLink>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;
+
+exports[`Footer component should match snapshot 1`] = `
+<div>
+  <div
+    className="footer"
+  >
+    <footer
+      className="container-fluid text-center"
+      data-offset-bottom="10"
+    >
+      <div
+        className="panel-footer text-center bg-dark"
+      >
+        <p>
+           
+          © Copyright 2018 
+          <i>
+            powered by
+          </i>
+           
+          <b>
+             InfoClan
+          </b>
+           
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`IndexPage component should match snapshot 1`] = `
+<div>
+  <AuthNav />
+  <div
+    className="jumbotron"
+  >
+    <div
+      className="container"
+    >
+      <h1>
+        We Connect 
+      </h1>
+    </div>
+  </div>
+  <br />
+  <div
+    className="container"
+  >
+    <h3>
+       
+      Welcome to We Connect! Connect with millions of Businesses World wide
+    </h3>
+    <a
+      className="btn btn-start"
+      href="/signup"
+      role="button"
+    >
+      <h4>
+        Get Started
+      </h4>
+    </a>
+  </div>
+  <hr />
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm-6 col-md-4"
+      >
+        <div
+          className="thumbnail"
+        >
+          <img
+            alt="image1"
+            src="reg.jpeg"
+          />
+          <div
+            className="caption"
+          >
+            <h3>
+              Register Business
+            </h3>
+            <p>
+              Lorem ipsum donec id elit non mi porta gravida at eget metus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-6 col-md-4"
+      >
+        <div
+          className="thumbnail"
+        >
+          <img
+            alt="image2"
+            src="innovation.jpeg"
+          />
+          <div
+            className="caption"
+          >
+            <h3>
+              Give Review
+            </h3>
+            <p>
+              Lorem ipsum donec id elit non mi porta gravida at eget metus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-6 col-md-4"
+      >
+        <div
+          className="thumbnail"
+        >
+          <img
+            alt="image3"
+            src="business.jpeg"
+          />
+          <div
+            className="caption"
+          >
+            <h3>
+              Connect
+            </h3>
+            <p>
+              Lorem ipsum donec id elit non mi porta gravida at eget metus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Login component should match snapshot 1`] = `
+<div>
+  <_class
+    options={Object {}}
+  />
+  <AuthNav />
+  <div
+    className="container"
+  >
+    <h3>
+       Please sign in to do more
+    </h3>
+  </div>
+  <hr />
+  <div
+    className="container"
+    id="log-in-form"
+  >
+    <div
+      className="heading"
+    >
+      <h1
+        style={
+          Object {
+            "color": "#000000",
+            "textShadow": "0 0 0 black",
+          }
+        }
+      >
+        Log In Your Account
+      </h1>
+    </div>
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email:
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required={true}
+          type="email"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="pwd"
+        >
+          Password:
+        </label>
+        <input
+          className="form-control"
+          id="pwd"
+          name="password"
+          placeholder="Enter password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="form-group form-group-btn"
+      >
+        <button
+          className="btn btn-success btn-lg"
+          style={
+            Object {
+              "marginTop": "20%",
+            }
+          }
+          type="submit"
+        >
+          Log In
+        </button>
+      </div>
+      <div
+        className="clearfix"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`ResetUserPassword component should match snapshot 1`] = `
+<div>
+  <_class
+    options={Object {}}
+  />
+  <withRouter(Connect(NavBar)) />
+  <div
+    className="container"
+  >
+    <h3>
+       You can now reset your password
+    </h3>
+  </div>
+  <hr />
+  <div
+    style={
+      Object {
+        "margin": "200px 400px",
+      }
+    }
+  >
+    <form>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="email"
+        >
+          Email:
+        </label>
+        <input
+          className="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required={true}
+          type="email"
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="pwd"
+        >
+           New Password:
+        </label>
+        <input
+          className="form-control"
+          id="pwd"
+          name="new_password"
+          placeholder="Enter password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="form-group form-group-btn"
+      >
+        <button
+          className="btn btn-success btn-lg"
+          style={
+            Object {
+              "marginTop": "3%",
+            }
+          }
+          type="submit"
+        >
+          Reset Password
+        </button>
+      </div>
+      <div
+        className="clearfix"
+      />
+    </form>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`UserRegistration component should match snapshot 1`] = `
+<div>
+  <_class
+    options={
+      Object {
+        "top": "50px",
+        "zIndex": 200,
+      }
+    }
+  />
+  <AuthNav />
+  <div
+    className="container"
+  >
+    <h3>
+       Please register to login
+    </h3>
+  </div>
+  <hr />
+  <div
+    className="container"
+    id="registration-form"
+  >
+    <div
+      className="image"
+    />
+    <div
+      className="frm"
+    >
+      <h1>
+        Sign up
+      </h1>
+      <form>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="username"
+          >
+            Username:
+          </label>
+          <input
+            className="form-control"
+            id="username"
+            name="name"
+            placeholder="Enter username"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="email"
+          >
+            Email:
+          </label>
+          <input
+            className="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required={true}
+            type="email"
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            htmlFor="pwd"
+          >
+            Password:
+          </label>
+          <input
+            className="form-control"
+            id="pwd"
+            name="password"
+            placeholder="Enter password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <div
+          className="fixed"
+        >
+          <button
+            className="btn btn-success btn-lg"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

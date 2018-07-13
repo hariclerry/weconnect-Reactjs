@@ -9,9 +9,13 @@ import { checkIfUserIsLoggedIn } from "actions/userActions";
 import Businesses from "components/business/businessList";
 import Pagination from "components/business/pagination";
 
+/**
+ * Business Container Component displaying lists of all businesses.
+ *
+ */
 
 export class BusinessList extends React.Component {
-
+  // Initialise local state
   constructor(props) {
     super(props);
     this.state = {
@@ -20,72 +24,76 @@ export class BusinessList extends React.Component {
       nextPage: null,
       searching: false
     };
-}
+  }
+
 
   componentDidMount() {
+    //this.props.fetchBusinesses();
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
-     //  execute fetch business function
+    //  execute fetch business function
     this.props.fetchBusinesses();
+    
   }
 
-  search = (value) => {
-    this.setState({ searching: true })
-    this.props.searchBusinesses(value)
-  }
+  search = value => {
+    this.setState({ searching: true });
+    this.props.searchBusinesses(value);
+  };
 
   render() {
-    const { 
-      fetchBusinesses, 
-      prevPage, 
-      nextPage, 
-    } = this.props;
   
-    const searchedBusinesses = this.props.searchedBusinesses.business_data
+    // Deconstruct props/objects
+    const { fetchBusinesses, prevPage, nextPage } = this.props;
+
+
+    const searchedBusinesses = this.props.searchedBusinesses.business_data;
     // returns all businesses from props int a dict
     const businesses = Object.values({ ...this.props.business.business_data });
 
-    // sorts/arrange business from recently added to previous
+    // sorts/arranges businesses from recently added to previous
     if (businesses) {
       Array.prototype.reverse.call(businesses);
     }
+
+  
     return (
       <div>
+        
         <Businesses
-        businesses={businesses}
-        searchedBusinesses={searchedBusinesses}
-        searchBusinesses={this.search}
-        searching={this.state.searching}
-        />
+          businesses={businesses}
+          searching={this.state.searching}
+          searchedBusinesses={searchedBusinesses}
+          searchBusinesses={this.search} />
         <Pagination
-        paginate={fetchBusinesses}
-        prevPage={prevPage}
-        nextPage={nextPage}
+          paginate={fetchBusinesses}
+          prevPage={prevPage}
+          nextPage={nextPage}
         />
       </div>
-  
     );
   }
 }
-
+// Validate props
 BusinessList.propTypes = {
   email: PropTypes.string.isRequired,
   fetchBusinesses: PropTypes.func.isRequired,
-  businesses: PropTypes.object
+  businesses: PropTypes.object,
+  searchedBusinesses: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-  email: state.auth.loginData.email,
-  business: state.business.fetchBusinessMessage,
-  nextPage: state.business.fetchBusinessMessage.next_page,
-  prevPage: state.business.fetchBusinessMessage.prev_page,
-  searchedBusinesses: state.business.searchBusinessMessage,
-  }
+    email: state.auth.loginData.email,
+    business: state.business.fetchBusinessMessage,
+    nextPage: state.business.fetchBusinessMessage.next_page,
+    prevPage: state.business.fetchBusinessMessage.prev_page,
+    searchedBusinesses: state.business.searchBusinessMessage
+  };
 };
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchBusinesses, searchBusinesses }
+    { fetchBusinesses, searchBusinesses, checkIfUserIsLoggedIn }
   )(BusinessList)
 );

@@ -3,23 +3,25 @@ import {shallow, mount} from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import weconnectStore from "store";
-import RegisterBusiness from "containers/business/registerBusiness";
+import ResetPassword from "containers/user/resetPassword";
 
 const loginUserMock = { access_token: jwt.sign({ email: "clerry@gmail.com", password: "this199" }, "hard to guess string")}
 
-describe('RegisterBusiness component',() =>{
+describe('ResetPassword component',() =>{
   beforeEach(() => {
     localStorage.setItem("token", loginUserMock.access_token);
 });
 it('should match snapshot',() =>{
-  const wrapper = shallow(<RegisterBusiness/>)
+  const wrapper = shallow(<ResetPassword />)
   expect(wrapper).toMatchSnapshot();
 })
 
-it("should render the RegisterBusiness component", () => {
-  const mountComponent = shallow(<MemoryRouter><RegisterBusiness store = {weconnectStore}/></MemoryRouter>)
+it("should render the ResetPassword component", () => {
+  const mountComponent = shallow(<MemoryRouter>< ResetPassword store = {weconnectStore}/></MemoryRouter>)
   expect(mountComponent.length).toBe(1);
   
 });
 
-})
+}
+
+)

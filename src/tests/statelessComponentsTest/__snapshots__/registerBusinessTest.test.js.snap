@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registerBusiness should match snapshot 1`] = `
+<div>
+  <RegisterBusiness
+    createBusiness={[Function]}
+  />
+</div>
+`;
