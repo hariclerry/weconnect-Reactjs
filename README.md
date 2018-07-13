@@ -45,7 +45,7 @@ With WeConnect APP you can:
 ### Connect with the Python flask backend API
 In order for the project to run locally you should clone the WeConnect backend python application which powers the api that this application consumes.
 
-* Go to the [repository(https://github.com/hariclerry/weconnect.git)] for more on how to setup the API backend
+* Go to the [repository](https://github.com/hariclerry/weconnect.git) for more on how to setup the API backend
 * Make sure to have the backend server running at `http://127.0.0.1:5000`
 * Go to the `baseUrl.js` file and change the base url API `http://127.0.0.1:5000`
 
