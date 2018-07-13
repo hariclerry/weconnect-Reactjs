@@ -7,7 +7,6 @@ const unregister = fetchIntercept.register({
   },
 
   response: function(response) {
-    //    console.log('response body',response)
     switch (response.status) {
       case 401:
         localStorage.removeItem("access_token");

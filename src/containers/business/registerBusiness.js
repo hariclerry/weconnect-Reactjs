@@ -15,7 +15,7 @@ import RegisterBusiness from "components/business/registerBusiness";
  *
  */
 
-class AddBusiness extends React.Component {
+export class AddBusiness extends React.Component {
   componenWillMount() {
     checkIfUserIsLoggedIn(this.props.email, this.props.history);
   }

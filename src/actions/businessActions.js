@@ -27,7 +27,6 @@ export const registerBusiness = credentials => dispatch => {
         type: REGISTER_BUSINESS,
         message: data
       });
-      // notify.show("Business successfully registered", "success");
     });
 };
 

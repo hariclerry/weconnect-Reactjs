@@ -15,7 +15,7 @@ import { checkIfUserIsLoggedIn } from "actions/userActions";
  *
  */
 
-class EditBusinessContainer extends React.Component {
+export class EditBusinessContainer extends React.Component {
   // Initialise local state
   constructor(props) {
     super(props);
