@@ -23,33 +23,33 @@ With WeConnect APP you can:
 
 ### Installation
 
-* Clone the app
+1. Clone the app
 
- git clone https://github.com/hariclerry/weconnect-Reactjs.git
+ * git clone https://github.com/hariclerry/weconnect-Reactjs.git
 
-* Install dependencies
+2. Install dependencies
   ```npm install```
 
-* Run app
+3. Run app
  ```npm start```
 
-* To build the app
+4. To build the app
  ```npm run build```
 
-* Testing
+5. Testing
 
-In order to test the application you can run the command
+* In order to test the application you can run the command
 ```npm test``` 
 
-Run test coverage by running the command 
+* Run test coverage by running the command 
 ```npm test -- --coverage```
 
 ### Connect with the backend API
- * Python flask
-  Make sure to have the backend server running at `http://127.0.0.1:5000`
+##### Python flask
+  * Make sure to have the backend server running at `http://127.0.0.1:5000`
 
-* Other API backend
-   Go to the `baseUrl.js` file and change the base url API to your local host address
+##### Other API backend
+   * Go to the `baseUrl.js` file and change the base url API to your local host address
 
 ### Checkout the live app on heroku
 https://reactjs-weconnect.herokuapp.com/
