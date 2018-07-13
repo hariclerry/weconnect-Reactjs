@@ -42,14 +42,12 @@ With WeConnect APP you can:
 * Run test coverage by running the command 
 ```npm test -- --coverage```
 
-### Connect with the backend API
-#### Python flask
-  * Go to the `baseUrl.js` file and change the base url `http://127.0.0.1:5000`
-  * Make sure to have the backend server running at `http://127.0.0.1:5000`
+### Connect with the Python flask backend API
+In order for the project to run locally you should clone the WeConnect backend python application which powers the api that this application consumes.
 
-#### Other API backend
-   * Go to the `baseUrl.js` file and change the base url API to your localhost address
-    * Make sure to have the backend server running at your localhost address
+* Go to the [repository(https://github.com/hariclerry/weconnect.git)] for more on how to setup the API backend
+* Make sure to have the backend server running at `http://127.0.0.1:5000`
+* Go to the `baseUrl.js` file and change the base url API `http://127.0.0.1:5000`
 
 ### Checkout the live app on heroku
 https://reactjs-weconnect.herokuapp.com/
