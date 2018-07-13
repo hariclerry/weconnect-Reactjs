@@ -44,8 +44,9 @@ export class Reviews extends React.Component {
       .then(() => {
         notify.show("Reviews Successfully Added", "success");
       });
-
-    window.location.reload();
+      this.props.fetchReview(businessId);
+      e.target.elements.description.value = "";
+    // window.location.reload();
   };
 
   render() {
@@ -77,6 +78,7 @@ Reviews.propTypes = {
 };
 // Make state available to this components through props
 const mapStateToProps = state => {
+  console.log(state)
   return {
     username: state.auth.loginData.username,
     email: state.auth.loginData.email,
