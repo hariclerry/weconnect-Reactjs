@@ -1,5 +1,5 @@
 import React from "react";
-import {shallow, mount} from "enzyme";
+import { shallow } from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import weconnectStore from "store";

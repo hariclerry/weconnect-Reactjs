@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import BusinessList from "../../components/business/businessList";
+import BusinessList from "../../components/business/list";
 
 describe("Business List", () => {
   let wrapper;

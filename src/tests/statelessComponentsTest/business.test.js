@@ -1,13 +1,12 @@
 import React from "react";
-import {shallow, mount} from "enzyme";
-import RegisterBusiness from "components/business/registerBusiness";
-import ReviewBusiness from "components/business/addReview";
-import Dashboard from "components/business/dashboard";
-import EditBusiness from "components/business/editBusiness";
+import { shallow } from "enzyme";
+import RegisterBusiness from "components/business/register";
+import ReviewBusiness from "components/business/reviews";
+import Dashboard from "components/user/user";
+import EditBusiness from "components/business/edit";
 import Pagination from "components/business/pagination";
 import SearchBusiness from "components/business/searchBar";
-import SingleBusiness from "components/business/singleBusiness";
-import BusinessList from "../../components/business/businessList"
+import SingleBusiness from "components/business/business";
 
 
 
@@ -94,26 +93,6 @@ describe('SingleBusiness component',() => {
 })
 
 
-// describe('Business List', ()=>{
-//   let wrapper;
-//   beforeEach(()=>{
-//     const businesses = []
-//     const searchBusinesses = {}
-//     const searching = true
-//     const searchedBusinesses = [{name: "business test", category:"test", location: "loc", description:"desc"}]
-//     wrapper = mount(<BusinessList searching={searching} 
-//                         businesses={businesses} searchBusinesses = {searchBusinesses}
-//                         searchedBusinesses={searchedBusinesses} />)
-//   })
-
-//   it('should display businesses',() =>{
-//     expect(wrapper.containsMatchingElement("<td>business test</td>")).toBe(true);
-//   })
-
-//   it('should match snapshot', () =>{
-//     expect(wrapper).toMatchSnapshot();
-//   })
-// })
 
 
 

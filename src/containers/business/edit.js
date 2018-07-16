@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { notify } from "react-notify-toast";
 
-import EditBusiness from "components/business/editBusiness";
+import EditBusiness from "components/business/edit";
 import { jsonStringify } from "utils/jsonHelper";
 import { editBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";

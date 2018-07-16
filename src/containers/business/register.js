@@ -3,12 +3,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Notifications, { notify } from "react-notify-toast";
+import { notify } from "react-notify-toast";
 
 import { registerBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 import { jsonStringify } from "utils/jsonHelper";
-import RegisterBusiness from "components/business/registerBusiness";
+import RegisterBusiness from "components/business/register";
 
 /**
  * Register business Container Component for adding/registering businesses.

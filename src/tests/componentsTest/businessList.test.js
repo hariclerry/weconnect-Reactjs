@@ -1,9 +1,9 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import { MemoryRouter } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import weconnectStore from "store";
-import { BusinessList } from "containers/business/businessList";
+import { BusinessList } from "containers/business/list";
 
 const loginUserMock = {
   access_token: jwt.sign(

@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { notify } from "react-notify-toast";
 
 import { jsonStringify } from "utils/jsonHelper";
-import AddReview from "components/business/addReview";
+import AddReview from "components/business/reviews";
 import {
   singleBusiness,
   fetchReview,
@@ -46,7 +46,7 @@ export class Reviews extends React.Component {
       });
       this.props.fetchReview(businessId);
       e.target.elements.description.value = "";
-    // window.location.reload();
+  
   };
 
   render() {

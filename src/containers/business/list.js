@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 import { fetchBusinesses, searchBusinesses } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
-import Businesses from "components/business/businessList";
+import Businesses from "components/business/list";
 import Pagination from "components/business/pagination";
 
 /**
