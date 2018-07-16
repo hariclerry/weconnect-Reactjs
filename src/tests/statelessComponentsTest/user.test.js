@@ -1,7 +1,5 @@
 import React from "react";
 import {shallow} from "enzyme";
-import RegisterBusiness from "components/business/registerBusiness";
-// import Businesses from "components/business/businessList";
 import UserRegistration from "components/user/signup";
 import Login from "components/user/login";
 import ResetUserPassword from "components/user/resetPassword";

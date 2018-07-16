@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import BusinessLists from "components/business/displayBusinessList";
+import BusinessLists from "components/business/results";
 import SearchBusiness from "components/business/searchBar";
 import NavBar from "components/common/navBar";
 import Footer from "components/common/footer";
+import TableSet from "../common/tableSet";
 import "static/css/bootstrap.min.css";
+
 
 const Businesses = ({businesses, searching, searchedBusinesses,
   searchBusinesses
@@ -32,25 +33,7 @@ const Businesses = ({businesses, searching, searchedBusinesses,
         </div>
         <div className="table-responsive">
           <table className="table table-striped">
-            <thead>
-              <tr>
-                <td>
-                  <b>Name</b>
-                </td>
-                <td>
-                  <b>Category</b>
-                </td>
-                <td>
-                  <b>Location</b>
-                </td>
-                <td>
-                  <b>Description</b>
-                </td>
-                <td>
-                  <b>Review</b>
-                </td>
-              </tr>
-            </thead>
+            <TableSet />
             <tbody>
               {searching
                 ? searchedBusinessesList.map((business, index) => (

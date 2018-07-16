@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow} from "enzyme";
-import { AddBusiness} from "../../containers/business/registerBusiness"
+import { AddBusiness} from "../../containers/business/register"
 
 
 

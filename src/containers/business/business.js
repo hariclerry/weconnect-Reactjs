@@ -7,7 +7,7 @@ import { notify } from "react-notify-toast";
 
 import { singleBusiness, deleteBusiness } from "actions/businessActions";
 import { checkIfUserIsLoggedIn } from "actions/userActions";
-import SingleBusiness from "components/business/singleBusiness";
+import SingleBusiness from "components/business/business";
 
 /**
  * Single business Container Component for displaying information of a single business.

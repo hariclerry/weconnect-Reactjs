@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 import { checkIfUserIsLoggedIn } from "actions/userActions";
 import { userBusinesses } from "actions/businessActions";
-import Dashboard from "components/business/dashboard";
+import Dashboard from "components/user/user";
 
 /**
  * User dashboard Container Component for displaying list of businesses belonging to the logged in user.

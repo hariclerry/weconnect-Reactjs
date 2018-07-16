@@ -5,11 +5,11 @@ import { Route, withRouter } from "react-router-dom";
 import Index from "components/common/indexPage";
 import Signup from "containers/user/signup";
 import Login from "containers/user/login";
-import Dashboard from "containers/business/dashboard";
-import RegisterBusiness from "containers/business/registerBusiness";
-import BusinessList from "containers/business/businessList";
-import Business from "containers/business/singleBusiness";
-import EditBusinessContainer from "containers/business/editBusiness";
+import Dashboard from "containers/user/user";
+import RegisterBusiness from "containers/business/register";
+import BusinessList from "containers/business/list";
+import Business from "containers/business/business";
+import EditBusinessContainer from "containers/business/edit";
 import Reviews from "containers/business/reviews";
 import ResetPassword from "containers/user/resetPassword";
 

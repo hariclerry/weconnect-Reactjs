@@ -1,6 +1,6 @@
 import React from "react";
 import {shallow, mount} from "enzyme";
-import ReviewBusiness from "../../components/business/addReview"
+import ReviewBusiness from "../../components/business/reviews"
 
 
 

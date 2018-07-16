@@ -5,6 +5,7 @@ import Notifications from "react-notify-toast";
 
 import NavBar from "components/common/navBar";
 import Footer from "components/common/footer";
+import TableSet from "../common/tableSet";
 import "static/css/bootstrap.min.css";
 import "static/css/fix-footer.css";
 
@@ -23,23 +24,7 @@ const Dashboard = ({ businesses, username }) => (
       <div className="fixed-footer">
         <div className="table-responsive">
           <table className="table table-striped">
-            <thead>
-              <td>
-                <b>Name</b>
-              </td>
-              <td>
-                <b>Category</b>
-              </td>
-              <td>
-                <b>Location</b>
-              </td>
-              <td>
-                <b>Description</b>
-              </td>
-              <td>
-                <b>Review</b>
-              </td>
-            </thead>
+            <TableSet />
             <tbody>
               {!businesses ? (
                 <div> No Businesses found </div>
